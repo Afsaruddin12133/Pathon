@@ -1,0 +1,209 @@
+{
+  "id": "blogs",
+  "title": "Blog",
+  "effectiveDate": null,
+  "lastUpdated": null,
+  "color": "blue",
+  "category": "content",
+  "description": "Insights, stories, and updates from the world of online learning",
+  "sections": [
+    {
+      "id": "hero",
+      "number": null,
+      "title": null,
+      "type": "hero",
+      "description": "Blog hero section",
+      "titleText": "Pathon Blog",
+      "content": "Explore insights, success stories, and expert perspectives on online learning, edtech innovation, and the future of education.",
+      "subtitle": "Join the conversation about democratizing education through technology.",
+      "stats": [
+        {
+          "value": "100+",
+          "label": "Articles",
+          "icon": "📝"
+        },
+        {
+          "value": "50k+",
+          "label": "Monthly Readers",
+          "icon": "👁️"
+        },
+        {
+          "value": "Weekly",
+          "label": "New Posts",
+          "icon": "📅"
+        },
+        {
+          "value": "Expert",
+          "label": "Contributors",
+          "icon": "👨‍🏫"
+        }
+      ]
+    },
+    {
+      "id": "featured",
+      "number": 1,
+      "title": "Featured Stories",
+      "type": "featured-posts",
+      "description": "Highlighted blog posts",
+      "posts": [
+        {
+          "title": "How We're Making Education Accessible to Rural Bangladesh",
+          "excerpt": "Discover our journey of bringing quality learning to remote communities through innovative mobile-first solutions.",
+          "category": "Impact Story",
+          "readTime": "5 min read",
+          "author": "Anika Rahman",
+          "date": "March 15, 2025",
+          "image": "📱",
+          "featured": true
+        },
+        {
+          "title": "The Future of EdTech: AI-Powered Personalized Learning",
+          "excerpt": "Exploring how artificial intelligence is transforming how we deliver customized education experiences.",
+          "category": "Technology",
+          "readTime": "8 min read",
+          "author": "Dr. Shafiq Ahmed",
+          "date": "March 10, 2025",
+          "image": "🤖",
+          "featured": true
+        },
+        {
+          "title": "From Student to Instructor: Success Stories from Pathon",
+          "excerpt": "Inspiring stories of learners who became educators and built successful teaching careers on our platform.",
+          "category": "Success Stories",
+          "readTime": "6 min read",
+          "author": "Maria Khan",
+          "date": "March 5, 2025",
+          "image": "🌟",
+          "featured": true
+        }
+      ]
+    },
+    {
+      "id": "categories",
+      "number": 2,
+      "title": "Browse by Category",
+      "type": "categories",
+      "description": "Blog content categories",
+      "categories": [
+        {
+          "name": "EdTech Trends",
+          "description": "Latest innovations and trends in education technology",
+          "icon": "🚀",
+          "count": 25,
+          "color": "purple"
+        },
+        {
+          "name": "Teaching Tips",
+          "description": "Best practices for online instructors and educators",
+          "icon": "👨‍🏫",
+          "count": 18,
+          "color": "blue"
+        },
+        {
+          "name": "Learning Strategies",
+          "description": "Effective learning techniques and study methods",
+          "icon": "🧠",
+          "count": 22,
+          "color": "green"
+        },
+        {
+          "name": "Platform Updates",
+          "description": "New features and improvements to Pathon",
+          "icon": "🔄",
+          "count": 15,
+          "color": "yellow"
+        },
+        {
+          "name": "Success Stories",
+          "description": "Inspiring stories from our community members",
+          "icon": "🌟",
+          "count": 30,
+          "color": "pink"
+        },
+        {
+          "name": "Industry Insights",
+          "description": "Analysis of the education sector and market trends",
+          "icon": "📊",
+          "count": 12,
+          "color": "indigo"
+        }
+      ]
+    },
+    {
+      "id": "popular",
+      "number": 3,
+      "title": "Most Popular Posts",
+      "type": "popular-posts",
+      "description": "Top-read blog articles",
+      "posts": [
+        {
+          "title": "10 Ways to Earn While Teaching Online",
+          "excerpt": "A comprehensive guide to monetizing your expertise through online teaching platforms.",
+          "category": "Teaching Tips",
+          "readTime": "7 min read",
+          "views": "15.2k",
+          "date": "February 28, 2025"
+        },
+        {
+          "title": "Mobile Learning: The Key to Education Access in Bangladesh",
+          "excerpt": "How mobile-first approaches are bridging the education gap in developing regions.",
+          "category": "Impact Story",
+          "readTime": "6 min read",
+          "views": "12.8k",
+          "date": "February 20, 2025"
+        },
+        {
+          "title": "Building Effective Online Courses: A Step-by-Step Guide",
+          "excerpt": "Practical tips for creating engaging and successful online learning content.",
+          "category": "Teaching Tips",
+          "readTime": "10 min read",
+          "views": "10.5k",
+          "date": "February 15, 2025"
+        },
+        {
+          "title": "The Rise of Micro-learning in Digital Education",
+          "excerpt": "Why short-form learning content is dominating online education platforms.",
+          "category": "Learning Strategies",
+          "readTime": "5 min read",
+          "views": "9.3k",
+          "date": "February 10, 2025"
+        }
+      ]
+    },
+    {
+      "id": "newsletter",
+      "number": 4,
+      "title": "Stay Updated",
+      "type": "newsletter",
+      "description": "Blog newsletter subscription",
+      "specialStyle": true,
+      "content": "Subscribe to our newsletter and never miss an update on online learning trends, platform features, and community stories.",
+      "benefits": [
+        "Weekly curated articles",
+        "Exclusive content and insights",
+        "Early access to new features",
+        "Community spotlights and interviews"
+      ],
+      "placeholder": "Enter your email address",
+      "buttonText": "Subscribe"
+    },
+    {
+      "id": "contribute",
+      "number": 5,
+      "title": "Want to Contribute?",
+      "type": "contribute",
+      "description": "Information for blog contributors",
+      "content": "We welcome contributions from educators, learners, and edtech enthusiasts. Share your insights and experiences with our community.",
+      "guidelines": [
+        "Original, well-researched content",
+        "Focus on education, technology, or learning",
+        "800-1500 words recommended",
+        "Include relevant examples and data"
+      ],
+      "contact": {
+        "email": "blog@pathon.com",
+        "process": "Submit your article pitch for review"
+      }
+    }
+  ]
+}

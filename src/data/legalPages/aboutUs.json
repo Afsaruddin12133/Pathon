@@ -1,0 +1,417 @@
+{
+  "id": "about-us",
+  "title": "About Us",
+  "effectiveDate": null,
+  "lastUpdated": null,
+  "color": "purple",
+  "category": "company",
+  "description": "Learn about Pathon's mission, features, and team",
+  "sections": [
+    {
+      "id": "hero",
+      "number": null,
+      "title": null,
+      "type": "hero",
+      "description": "Welcome and platform overview",
+      "titleText": "Welcome to Pathon — Where Learning Meets Opportunity",
+      "content": "Pathon isn't just another edtech platform. It's a <span class='font-semibold text-purple-700'>movement</span>. A digital space where anyone can teach, everyone can learn, and knowledge flows without boundaries.",
+      "subtitle": "Born out of a simple belief — 'education should be accessible, empowering, and community-driven' — Pathon is reshaping how learning happens in the modern world.",
+      "stats": [
+        {
+          "value": "1000+",
+          "label": "Active Learners",
+          "icon": "👥"
+        },
+        {
+          "value": "200+",
+          "label": "Expert Instructors",
+          "icon": "🎓"
+        },
+        {
+          "value": "50+",
+          "label": "Courses Available",
+          "icon": "📚"
+        },
+        {
+          "value": "24/7",
+          "label": "Platform Access",
+          "icon": "⏰"
+        }
+      ]
+    },
+    {
+      "id": "what-is-pathon",
+      "number": 1,
+      "title": "What is Pathon?",
+      "type": "dual-column",
+      "description": "Platform purpose and mission",
+      "leftContent": {
+        "title": "A Platform Built on Community",
+        "description": "Pathon is an open and inclusive online learning ecosystem where users seamlessly transition between being students and instructors. We've eliminated the traditional barriers to education, creating a space where knowledge exchange happens organically.",
+        "highlight": "Dual-role System: Learn today, teach tomorrow."
+      },
+      "rightContent": {
+        "title": "Our Mission & Vision",
+        "items": [
+          {
+            "icon": "🎯",
+            "title": "Mission",
+            "description": "To democratize education by empowering anyone with knowledge to become an instructor and making quality learning accessible to everyone."
+          },
+          {
+            "icon": "✨",
+            "title": "Vision",
+            "description": "To create a world where education knows no boundaries, where every individual can both learn and contribute to the collective knowledge of humanity."
+          }
+        ]
+      }
+    },
+    {
+      "id": "core-features",
+      "number": 2,
+      "title": "Our Core Features",
+      "type": "feature-grid",
+      "description": "Key platform features and capabilities",
+      "subtitle": "Comprehensive tools designed for modern learning experiences",
+      "features": [
+        {
+          "icon": "🎥",
+          "title": "Recorded Classes",
+          "description": "Upload pre-recorded video lessons with unlimited lifetime access for students. Perfect for in-depth learning at your own pace.",
+          "highlights": [
+            "Self-paced learning",
+            "Unlimited replays",
+            "Downloadable resources"
+          ],
+          "color": "purple"
+        },
+        {
+          "icon": "🎙️",
+          "title": "Live Interactive Classes",
+          "description": "Host real-time sessions with interactive whiteboards, screen sharing, and live Q&A. Create engaging virtual classroom experiences.",
+          "highlights": [
+            "Real-time interaction",
+            "Group discussions",
+            "Instant feedback"
+          ],
+          "color": "blue"
+        },
+        {
+          "icon": "🧠",
+          "title": "Problem Solving Hub",
+          "description": "Students submit academic challenges as images or PDFs. Get personalized solutions from educators or schedule one-on-one help sessions.",
+          "highlights": [
+            "Personalized help",
+            "Step-by-step solutions",
+            "Direct educator access"
+          ],
+          "color": "green"
+        },
+        {
+          "icon": "💰",
+          "title": "Flexible Monetization",
+          "description": "Support for local payment gateways (bKash, Nagad, Rocket) with negotiable pricing models. Earn as you teach with transparent revenue sharing.",
+          "highlights": [
+            "Multiple payment options",
+            "Negotiable pricing",
+            "Secure transactions"
+          ],
+          "color": "yellow"
+        },
+        {
+          "icon": "🔒",
+          "title": "Course Privacy Controls",
+          "description": "Choose between public courses for community access or private courses with invitation-only links. Perfect for corporate training and exclusive workshops.",
+          "highlights": [
+            "Public/Private options",
+            "Invite-only access",
+            "Course analytics"
+          ],
+          "color": "indigo"
+        },
+        {
+          "icon": "📊",
+          "title": "Progress Analytics",
+          "description": "Track student engagement, course completion rates, and learning patterns with detailed analytics for both learners and instructors.",
+          "highlights": [
+            "Performance tracking",
+            "Engagement metrics",
+            "Learning insights"
+          ],
+          "color": "pink"
+        }
+      ]
+    },
+    {
+      "id": "why-choose-pathon",
+      "number": 3,
+      "title": "Why Choose Pathon?",
+      "type": "comparison",
+      "description": "Benefits for learners and instructors",
+      "intro": "Unlike traditional learning platforms, Pathon offers unique advantages for both learners and educators:",
+      "comparisons": [
+        {
+          "category": "For Learners",
+          "items": [
+            {
+              "title": "🎯 Access Any Skill",
+              "description": "From academic subjects to professional skills and hobbies – all in one place"
+            },
+            {
+              "title": "💰 Affordable Learning",
+              "description": "Free courses available + flexible pricing on paid content"
+            },
+            {
+              "title": "⏰ Learn at Your Pace",
+              "description": "24/7 access to recorded content + scheduled live sessions"
+            },
+            {
+              "title": "🤝 Community Support",
+              "description": "Connect with peers, ask questions, and collaborate on projects"
+            }
+          ]
+        },
+        {
+          "category": "For Instructors",
+          "items": [
+            {
+              "title": "🚀 Zero Entry Barriers",
+              "description": "No formal qualifications needed – just knowledge and passion"
+            },
+            {
+              "title": "💸 Earn Your Worth",
+              "description": "Set your own prices, keep majority of earnings"
+            },
+            {
+              "title": "🌐 Reach Wider Audience",
+              "description": "Access learners across Bangladesh and beyond"
+            },
+            {
+              "title": "🛠️ Built-in Tools",
+              "description": "Everything you need to create, manage, and grow your courses"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unique-value",
+      "number": 4,
+      "title": "What Makes Us Different",
+      "type": "value-props",
+      "description": "Unique selling propositions and differentiators",
+      "valueProps": [
+        {
+          "icon": "🌍",
+          "title": "Truly Democratic",
+          "description": "First platform in Bangladesh where anyone can teach without institutional barriers. We believe knowledge, not credentials, should define educators.",
+          "stats": "100% open enrollment for instructors"
+        },
+        {
+          "icon": "⚖️",
+          "title": "Balanced Ecosystem",
+          "description": "We protect both learners with our 48-hour refund guarantee and instructors with secure payment holds. Fairness drives our platform policies.",
+          "stats": "95% dispute resolution satisfaction"
+        },
+        {
+          "icon": "🚀",
+          "title": "Localized & Global",
+          "description": "Built for Bangladeshi users with local payment support, but designed to connect with global learning communities and knowledge bases.",
+          "stats": "3 local payment methods supported"
+        },
+        {
+          "icon": "🔄",
+          "title": "Flexible Learning Modes",
+          "description": "Unique combination of recorded, live, and problem-solving learning formats – addressing different learning styles and needs.",
+          "stats": "3-in-1 learning approach"
+        }
+      ]
+    },
+    {
+      "id": "technology-stack",
+      "number": 5,
+      "title": "Our Technology",
+      "type": "tech-stack",
+      "description": "Technical infrastructure and tools",
+      "content": "Built with cutting-edge technology for seamless, secure, and scalable learning experiences",
+      "technologies": [
+        {
+          "category": "Frontend",
+          "stack": ["React.js", "Tailwind CSS", "Redux", "WebRTC"]
+        },
+        {
+          "category": "Backend",
+          "stack": ["Node.js", "Express.js", "MongoDB", "Socket.io"]
+        },
+        {
+          "category": "Infrastructure",
+          "stack": ["AWS", "Cloudflare", "YouTube API", "Payment Gateways"]
+        },
+        {
+          "category": "Security",
+          "stack": [
+            "JWT Authentication",
+            "End-to-end Encryption",
+            "Regular Audits",
+            "GDPR Compliance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "team",
+      "number": 6,
+      "title": "Meet Our Team",
+      "type": "team-grid",
+      "description": "The people behind Pathon",
+      "teams": [
+        {
+          "category": "Vision & Strategy",
+          "members": [
+            {
+              "role": "Founder & CEO",
+              "quote": "\"Education should empower, not exclude. Pathon is our answer to creating equal learning opportunities.\"",
+              "initials": "AR",
+              "color": "purple"
+            },
+            {
+              "role": "Head of Product",
+              "quote": "\"We're not just building features; we're crafting learning experiences that transform lives.\"",
+              "initials": "SJ",
+              "color": "blue"
+            }
+          ]
+        },
+        {
+          "category": "Technology",
+          "members": [
+            {
+              "role": "Lead Developer",
+              "quote": "\"Scalability and performance are at the heart of everything we build.\"",
+              "initials": "MH",
+              "color": "green"
+            },
+            {
+              "role": "UX Designer",
+              "quote": "\"Great design makes complex learning feel simple and accessible.\"",
+              "initials": "FN",
+              "color": "pink"
+            }
+          ]
+        },
+        {
+          "category": "Community & Growth",
+          "members": [
+            {
+              "role": "Community Lead",
+              "quote": "\"Our users aren't just numbers—they're the heart of our learning community.\"",
+              "initials": "TA",
+              "color": "yellow"
+            },
+            {
+              "role": "Partnership Manager",
+              "quote": "\"Building bridges between educators, learners, and institutions.\"",
+              "initials": "RS",
+              "color": "indigo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "partnership",
+      "number": 7,
+      "title": "Our Innovation Partners",
+      "type": "partnership",
+      "description": "Strategic partners and collaborators",
+      "specialStyle": true,
+      "partners": [
+        {
+          "name": "a2i Programme",
+          "description": "Aspire to Innovate - Government of Bangladesh",
+          "logo": "🏛️",
+          "contribution": "Incubated through the IDEA Contest, providing strategic guidance and national reach"
+        },
+        {
+          "name": "Educational Institutions",
+          "description": "University & School Partnerships",
+          "logo": "🏫",
+          "contribution": "Collaborating to bring structured curriculum and certified learning paths"
+        },
+        {
+          "name": "Technology Partners",
+          "description": "Infrastructure & API Providers",
+          "logo": "⚙️",
+          "contribution": "Ensuring platform reliability, security, and seamless integrations"
+        }
+      ],
+      "quote": "Great innovations happen at the intersection of vision and support. We're grateful for our partners who believe in democratizing education."
+    },
+    {
+      "id": "community-impact",
+      "number": 8,
+      "title": "Community Impact",
+      "type": "impact",
+      "description": "Metrics and testimonials showing platform impact",
+      "metrics": [
+        {
+          "icon": "🎓",
+          "value": "500+",
+          "label": "Skills Taught",
+          "description": "From coding to cooking, academics to arts"
+        },
+        {
+          "icon": "💼",
+          "value": "150+",
+          "label": "Instructor Earnings",
+          "description": "Part-time and full-time income generated"
+        },
+        {
+          "icon": "🌏",
+          "value": "64",
+          "label": "Districts Reached",
+          "description": "Learning access across Bangladesh"
+        },
+        {
+          "icon": "⭐",
+          "value": "4.8/5",
+          "label": "Average Rating",
+          "description": "Based on 2000+ student reviews"
+        }
+      ],
+      "testimonials": [
+        {
+          "text": "\"Pathon helped me turn my hobby into a side income. I never thought I could teach professionally!\"",
+          "author": "— Rina, Graphic Design Instructor"
+        },
+        {
+          "text": "\"As a student in a remote area, Pathon gives me access to quality education I couldn't find locally.\"",
+          "author": "— Arif, Medical Student"
+        }
+      ]
+    },
+    {
+      "id": "cta",
+      "number": 9,
+      "title": "Join Our Learning Revolution",
+      "type": "cta",
+      "description": "Call to action for users",
+      "specialStyle": true,
+      "actions": [
+        {
+          "title": "Start Learning",
+          "description": "Explore 50+ courses across various categories",
+          "buttonText": "Browse Courses",
+          "buttonVariant": "primary"
+        },
+        {
+          "title": "Share Your Knowledge",
+          "description": "Create your first course and earn from your expertise",
+          "buttonText": "Become an Instructor",
+          "buttonVariant": "secondary"
+        }
+      ],
+      "closingQuote": "Together, we're building a future where learning has no limits, and everyone is empowered to contribute."
+    }
+  ]
+}

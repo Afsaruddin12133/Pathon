@@ -1,0 +1,293 @@
+{
+  "id": "terms-of-use",
+  "title": "Terms of Use",
+  "effectiveDate": "May 15, 2025",
+  "lastUpdated": null,
+  "color": "purple",
+  "category": "legal",
+  "description": "Legal agreement governing your use of Pathon platform",
+  "sections": [
+    {
+      "id": "introduction",
+      "number": null,
+      "title": null,
+      "content": "Welcome to <span class=\"font-semibold text-purple-700\">Pathon</span>, a community-driven online learning platform accessible via Android and Web. These Terms of Use (\"Terms\") govern your access to and use of the services (\"Services\") provided by Pathon. By accessing or using our platform, you agree to be bound by these Terms. If you do not agree, please discontinue use.",
+      "type": "text"
+    },
+    {
+      "id": "user-accounts",
+      "number": 1,
+      "title": "User Accounts and Access",
+      "type": "cards",
+      "description": "Requirements and responsibilities for user accounts",
+      "items": [
+        {
+          "title": "✓ Eligibility",
+          "content": "Open to users of all age groups.",
+          "color": "purple"
+        },
+        {
+          "title": "✓ Registration",
+          "content": "Requires a valid mobile number and email address.",
+          "color": "blue"
+        },
+        {
+          "title": "✓ Login",
+          "content": "Pathon uses a password-free OTP (One-Time Password) system for secure login.",
+          "color": "green"
+        },
+        {
+          "title": "⚠️ User Responsibility",
+          "content": "Users are responsible for all activities occurring under their accounts. Keep your device secure and do not share your OTPs.",
+          "color": "yellow"
+        }
+      ]
+    },
+    {
+      "id": "platform-purpose",
+      "number": 2,
+      "title": "Platform Purpose and Intended Use",
+      "type": "grid",
+      "description": "How the platform is intended to be used",
+      "items": [
+        {
+          "title": "🌍 Knowledge Sharing",
+          "content": "The platform encourages open exchange of knowledge across all age, location, and background.",
+          "color": "purple",
+          "icon": "🌍"
+        },
+        {
+          "title": "👥 Age Suitability",
+          "content": "Course creators may recommend suitable age groups. However, Pathon does not enforce such restrictions. User discretion is advised.",
+          "color": "blue",
+          "icon": "👥"
+        }
+      ]
+    },
+    {
+      "id": "user-generated-content",
+      "number": 3,
+      "title": "User-Generated Content",
+      "type": "grid",
+      "description": "Rules and responsibilities for content created by users",
+      "items": [
+        {
+          "title": "🎥 Course Creation",
+          "content": "Any registered user may upload video courses or host live classes.",
+          "color": "purple",
+          "icon": "🎥"
+        },
+        {
+          "title": "⚖️ Responsibility",
+          "content": "Pathon does not pre-screen content for legality, accuracy, or appropriateness. Creators bear sole responsibility for what they publish.",
+          "color": "blue",
+          "icon": "⚖️"
+        },
+        {
+          "title": "⭐ Feedback System",
+          "content": "Students may rate and comment on courses. These serve as the primary quality indicators.",
+          "color": "green",
+          "icon": "⭐"
+        }
+      ]
+    },
+    {
+      "id": "course-accessibility",
+      "number": 4,
+      "title": "Course Accessibility",
+      "type": "grid",
+      "description": "Different types of course access settings",
+      "items": [
+        {
+          "title": "🌐 Public Courses",
+          "content": "Accessible by all Pathon users.",
+          "color": "green",
+          "icon": "🌐",
+          "fullTitle": true
+        },
+        {
+          "title": "🔐 Private Courses",
+          "content": "Only accessible through shared links.",
+          "color": "purple",
+          "icon": "🔐",
+          "fullTitle": true
+        }
+      ]
+    },
+    {
+      "id": "course-pricing",
+      "number": 5,
+      "title": "Course Pricing and Transactions",
+      "type": "complex",
+      "description": "Information about course pricing models and transactions",
+      "content": "This section contains multiple sub-sections with pricing information",
+      "items": [
+        {
+          "type": "item",
+          "icon": "🆓",
+          "title": "Free Courses",
+          "content": "No payment required."
+        },
+        {
+          "type": "item",
+          "icon": "💳",
+          "title": "Paid Courses",
+          "subItems": [
+            "• <strong>Negotiable:</strong> Students can propose a price.",
+            "• <strong>Non-Negotiable:</strong> Instructor sets a fixed price."
+          ]
+        },
+        {
+          "type": "item",
+          "icon": "🔄",
+          "title": "Pricing Adjustments",
+          "content": "Instructors may change the course model at any time. Changes apply only to future enrollments."
+        },
+        {
+          "type": "item",
+          "icon": "↩️",
+          "title": "Refund Policy",
+          "content": "Refund requests can be made within <strong>24 hours of enrollment</strong> if:",
+          "subItems": [
+            "✗ No content exists",
+            "✗ The content is misleading or false",
+            "✗ The course is incomplete"
+          ],
+          "note": "Valid claims receive full refunds. Invalid claims will be rejected."
+        }
+      ]
+    },
+    {
+      "id": "content-hosting",
+      "number": 6,
+      "title": "Content Hosting and Live Class Delivery",
+      "type": "cards",
+      "description": "How content is hosted and delivered on the platform",
+      "items": [
+        {
+          "title": "🎬 Recorded Classes",
+          "content": "Videos are hosted on YouTube. If a video is deleted from YouTube, it becomes inaccessible on Pathon.",
+          "color": "red"
+        },
+        {
+          "title": "📹 Live Classes",
+          "content": "Held via third-party video conferencing tools. Pathon is not liable for any technical or content issues arising from these services.",
+          "color": "orange"
+        }
+      ]
+    },
+    {
+      "id": "content-protection",
+      "number": 7,
+      "title": "Content Protection & Anti-Piracy",
+      "type": "grid",
+      "description": "Measures to protect intellectual property rights",
+      "items": [
+        {
+          "title": "⛔ Download Restrictions",
+          "content": "Pathon does not permit downloading videos from the platform.",
+          "color": "red",
+          "icon": "⛔"
+        },
+        {
+          "title": "📵 Screen Recording",
+          "content": "While not technically blocked, it is considered a violation of intellectual property rights.",
+          "color": "orange",
+          "icon": "📵"
+        },
+        {
+          "title": "©️ IP Rights",
+          "content": "Users retain ownership of their content but grant Pathon a non-exclusive license to host, reproduce, and display it on the platform.",
+          "color": "purple",
+          "icon": "©️"
+        }
+      ]
+    },
+    {
+      "id": "data-privacy",
+      "number": 8,
+      "title": "Data Privacy and Sharing",
+      "type": "grid",
+      "description": "What data is shared and what remains private",
+      "items": [
+        {
+          "title": "✓ What We Share",
+          "content": "Public profile information (e.g., name, profession) may be visible to other users.",
+          "color": "green",
+          "icon": "✓"
+        },
+        {
+          "title": "✗ What We Don't Share",
+          "content": "Email addresses and mobile numbers remain private.",
+          "color": "red",
+          "icon": "✗"
+        }
+      ],
+      "additionalContent": "<div class=\"bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500\"><p class=\"text-gray-700 text-sm\"><span class=\"font-semibold\">Policy Link:</span> Refer to our <span class=\"text-blue-700 font-semibold underline cursor-pointer\">[Privacy Policy]</span> for detailed information on data collection and protection.</p></div>"
+    },
+    {
+      "id": "availability",
+      "number": 9,
+      "title": "Availability and Platform Changes",
+      "type": "text",
+      "description": "Platform availability and updates",
+      "content": "We strive for uninterrupted service but do not guarantee continuous availability. Pathon may modify, suspend, or terminate portions of the platform without prior notice."
+    },
+    {
+      "id": "liability",
+      "number": 10,
+      "title": "Limitation of Liability",
+      "type": "cards",
+      "description": "Limitations of Pathon's responsibility",
+      "items": [
+        {
+          "title": "⚠️ As-Is Service",
+          "content": "The platform is provided without warranties or guarantees.",
+          "color": "yellow"
+        },
+        {
+          "title": "🚫 No Liability",
+          "content": "Pathon is not responsible for any losses resulting from content errors, system outages, or misuse of the platform.",
+          "color": "red"
+        }
+      ]
+    },
+    {
+      "id": "modifications",
+      "number": 11,
+      "title": "Modifications to Terms",
+      "type": "text",
+      "description": "How and when terms may be updated",
+      "content": "These Terms may be updated from time to time. Significant changes will be communicated via the platform. Continued use constitutes acceptance of updated Terms."
+    },
+    {
+      "id": "governing-law",
+      "number": 12,
+      "title": "Governing Law",
+      "type": "special",
+      "description": "Jurisdiction and applicable laws",
+      "content": "These Terms are governed by the laws of <span class=\"font-semibold text-purple-700\">[Insert Country]</span>. All disputes shall be subject to the jurisdiction of the courts in <span class=\"font-semibold text-purple-700\">[Insert Jurisdiction]</span>."
+    },
+    {
+      "id": "contact",
+      "number": 13,
+      "title": "Contact Us",
+      "type": "contact",
+      "description": "How to contact Pathon for questions",
+      "specialStyle": true,
+      "content": "If you have any questions regarding these Terms:",
+      "items": [
+        {
+          "icon": "📧",
+          "label": "Email",
+          "value": "[Insert Contact Email]"
+        },
+        {
+          "icon": "🌐",
+          "label": "Website",
+          "value": "[Insert Pathon Website URL]"
+        }
+      ]
+    }
+  ]
+}

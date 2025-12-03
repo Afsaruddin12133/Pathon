@@ -1,0 +1,427 @@
+{
+  "id": "contact-us",
+  "title": "Contact Us",
+  "effectiveDate": null,
+  "lastUpdated": null,
+  "color": "blue",
+  "category": "support",
+  "description": "Get in touch with Pathon team for inquiries, support, and partnerships",
+  "sections": [
+    {
+      "id": "hero",
+      "number": null,
+      "title": null,
+      "type": "hero",
+      "description": "Contact us hero section",
+      "titleText": "Get in Touch with Pathon",
+      "content": "We're here to help you on your learning journey. Whether you have questions, need support, or want to collaborate, our team is ready to assist you.",
+      "subtitle": "Reach out through any of our channels and we'll get back to you promptly.",
+      "stats": [
+        {
+          "value": "24/7",
+          "label": "Support Available",
+          "icon": "⏰"
+        },
+        {
+          "value": "< 2 hours",
+          "label": "Response Time",
+          "icon": "⚡"
+        },
+        {
+          "value": "95%",
+          "label": "Satisfaction Rate",
+          "icon": "⭐"
+        },
+        {
+          "value": "Multilingual",
+          "label": "Support Team",
+          "icon": "🌐"
+        }
+      ]
+    },
+    {
+      "id": "contact-methods",
+      "number": 1,
+      "title": "Contact Methods",
+      "type": "contact-methods-grid",
+      "description": "Different ways to contact Pathon",
+      "methods": [
+        {
+          "title": "📧 General Inquiries",
+          "description": "For general questions about Pathon, partnerships, or media inquiries",
+          "contact": "hello@pathon.com",
+          "responseTime": "Within 24 hours",
+          "icon": "📧",
+          "color": "blue",
+          "bestFor": ["Partnerships", "Media", "General questions", "Feedback"]
+        },
+        {
+          "title": "🔧 Technical Support",
+          "description": "Get help with technical issues, bugs, or platform problems",
+          "contact": "support@pathon.com",
+          "responseTime": "Within 4 hours",
+          "icon": "🔧",
+          "color": "green",
+          "bestFor": [
+            "Bug reports",
+            "Technical issues",
+            "Platform problems",
+            "Feature requests"
+          ]
+        },
+        {
+          "title": "👨‍🏫 Instructor Support",
+          "description": "Support for course creators, instructors, and content management",
+          "contact": "instructors@pathon.com",
+          "responseTime": "Within 12 hours",
+          "icon": "👨‍🏫",
+          "color": "purple",
+          "bestFor": [
+            "Course creation",
+            "Payout questions",
+            "Content guidelines",
+            "Teaching support"
+          ]
+        },
+        {
+          "title": "💼 Business & Enterprise",
+          "description": "For corporate training, enterprise solutions, and bulk enrollments",
+          "contact": "enterprise@pathon.com",
+          "responseTime": "Within 48 hours",
+          "icon": "💼",
+          "color": "indigo",
+          "bestFor": [
+            "Corporate training",
+            "Bulk purchases",
+            "Custom solutions",
+            "API access"
+          ]
+        },
+        {
+          "title": "📞 Phone Support",
+          "description": "Speak directly with our support team during business hours",
+          "contact": "+880 1234-567890",
+          "responseTime": "Immediate",
+          "icon": "📞",
+          "color": "red",
+          "bestFor": [
+            "Urgent issues",
+            "Account verification",
+            "Payment problems"
+          ],
+          "hours": "10 AM - 6 PM (GMT+6), Monday - Friday"
+        },
+        {
+          "title": "💬 Live Chat",
+          "description": "Instant messaging support within the Pathon platform",
+          "contact": "Available in-app",
+          "responseTime": "Within minutes",
+          "icon": "💬",
+          "color": "yellow",
+          "bestFor": [
+            "Quick questions",
+            "Immediate help",
+            "Navigation assistance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "office-locations",
+      "number": 2,
+      "title": "Our Offices",
+      "type": "office-locations",
+      "description": "Pathon office locations worldwide",
+      "locations": [
+        {
+          "city": "Dhaka, Bangladesh",
+          "type": "Headquarters",
+          "address": "Pathon Tower, Road 16, Gulshan 2, Dhaka 1212",
+          "phone": "+880 2-1234567",
+          "email": "bd@pathon.com",
+          "hours": "9:00 AM - 6:00 PM (GMT+6)",
+          "icon": "🏢",
+          "coordinates": {
+            "lat": 23.7949,
+            "lng": 90.4143
+          },
+          "description": "Our main headquarters where our core team works on platform development and operations."
+        },
+        {
+          "city": "Singapore",
+          "type": "Regional Office",
+          "address": "101 Cross Street, #23-01, Singapore 048523",
+          "phone": "+65 1234 5678",
+          "email": "sg@pathon.com",
+          "hours": "9:00 AM - 6:00 PM (GMT+8)",
+          "icon": "🏙️",
+          "coordinates": {
+            "lat": 1.2804,
+            "lng": 103.849
+          },
+          "description": "Regional hub for Southeast Asia operations and partner collaborations."
+        },
+        {
+          "city": "San Francisco, USA",
+          "type": "Technology Hub",
+          "address": "Market Street, Suite 500, San Francisco, CA 94105",
+          "phone": "+1 (415) 123-4567",
+          "email": "us@pathon.com",
+          "hours": "9:00 AM - 5:00 PM (PST)",
+          "icon": "🌉",
+          "coordinates": {
+            "lat": 37.7749,
+            "lng": -122.4194
+          },
+          "description": "Technology and innovation center focusing on AI and advanced learning solutions."
+        },
+        {
+          "city": "London, UK",
+          "type": "European Office",
+          "address": "1 Poultry, London EC2R 8EJ, United Kingdom",
+          "phone": "+44 20 1234 5678",
+          "email": "uk@pathon.com",
+          "hours": "9:00 AM - 6:00 PM (GMT)",
+          "icon": "🇬🇧",
+          "coordinates": {
+            "lat": 51.5139,
+            "lng": -0.0924
+          },
+          "description": "European operations center for content partnerships and educational collaborations."
+        }
+      ]
+    },
+    {
+      "id": "contact-form",
+      "number": 3,
+      "title": "Send us a Message",
+      "type": "contact-form",
+      "description": "Contact form for general inquiries",
+      "specialStyle": true,
+      "formFields": [
+        {
+          "name": "fullName",
+          "label": "Full Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "Enter your full name"
+        },
+        {
+          "name": "email",
+          "label": "Email Address",
+          "type": "email",
+          "required": true,
+          "placeholder": "Enter your email address"
+        },
+        {
+          "name": "phone",
+          "label": "Phone Number (Optional)",
+          "type": "tel",
+          "required": false,
+          "placeholder": "Enter your phone number"
+        },
+        {
+          "name": "subject",
+          "label": "Subject",
+          "type": "select",
+          "required": true,
+          "options": [
+            "General Inquiry",
+            "Technical Support",
+            "Course/Content Issues",
+            "Partnership Opportunities",
+            "Press/Media Inquiry",
+            "Feedback & Suggestions",
+            "Account Issues",
+            "Other"
+          ],
+          "placeholder": "Select a subject"
+        },
+        {
+          "name": "message",
+          "label": "Message",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "Tell us how we can help you...",
+          "rows": 5
+        }
+      ],
+      "privacyNote": "By submitting this form, you agree to our Privacy Policy. We'll never share your personal information with third parties.",
+      "submitText": "Send Message",
+      "successMessage": "Thank you for contacting us! We'll get back to you within 24 hours."
+    },
+    {
+      "id": "social-media",
+      "number": 4,
+      "title": "Connect with Us",
+      "type": "social-media",
+      "description": "Follow Pathon on social media",
+      "platforms": [
+        {
+          "name": "Facebook",
+          "handle": "@PathonOfficial",
+          "url": "https://facebook.com/PathonOfficial",
+          "icon": "📘",
+          "description": "Latest updates, community discussions, and live Q&A sessions",
+          "followers": "50K+"
+        },
+        {
+          "name": "LinkedIn",
+          "handle": "Pathon",
+          "url": "https://linkedin.com/company/pathon",
+          "icon": "💼",
+          "description": "Company updates, career opportunities, and professional networking",
+          "followers": "10K+"
+        },
+        {
+          "name": "Twitter",
+          "handle": "@PathonUpdates",
+          "url": "https://twitter.com/PathonUpdates",
+          "icon": "🐦",
+          "description": "Quick updates, announcements, and industry news",
+          "followers": "25K+"
+        },
+        {
+          "name": "Instagram",
+          "handle": "@Pathon_Community",
+          "url": "https://instagram.com/Pathon_Community",
+          "icon": "📷",
+          "description": "Student success stories, behind-the-scenes, and visual content",
+          "followers": "35K+"
+        },
+        {
+          "name": "YouTube",
+          "handle": "Pathon Official",
+          "url": "https://youtube.com/c/PathonOfficial",
+          "icon": "🎥",
+          "description": "Tutorial videos, platform guides, and educational content",
+          "subscribers": "100K+"
+        },
+        {
+          "name": "Telegram",
+          "handle": "Pathon Community",
+          "url": "https://t.me/PathonCommunity",
+          "icon": "📱",
+          "description": "Community discussions, quick updates, and support",
+          "members": "15K+"
+        }
+      ]
+    },
+    {
+      "id": "faq-contact",
+      "number": 5,
+      "title": "Common Contact Questions",
+      "type": "faq-contact",
+      "description": "Frequently asked questions about contacting us",
+      "faqs": [
+        {
+          "question": "What's the best way to get technical support?",
+          "answer": "For fastest technical support, use our in-app Live Chat feature or email support@pathon.com. Include screenshots and detailed descriptions of your issue for quicker resolution.",
+          "icon": "🔧"
+        },
+        {
+          "question": "How long does it take to get a response?",
+          "answer": "Response times vary by channel: Live Chat (minutes), Email support (4-24 hours), Phone (immediate during business hours). Urgent account issues are prioritized.",
+          "icon": "⏱️"
+        },
+        {
+          "question": "Can I visit your office in person?",
+          "answer": "Yes, our Dhaka headquarters welcomes visitors by appointment. Please email hello@pathon.com to schedule a visit at least 24 hours in advance.",
+          "icon": "🏢"
+        },
+        {
+          "question": "Do you offer support in Bengali?",
+          "answer": "Yes! We have Bengali-speaking support agents available through Live Chat, Phone, and Email support during Bangladesh business hours.",
+          "icon": "🇧🇩"
+        },
+        {
+          "question": "How can I partner with Pathon?",
+          "answer": "For partnership inquiries, email enterprise@pathon.com with details about your organization and proposed collaboration. Our partnerships team reviews all proposals.",
+          "icon": "🤝"
+        },
+        {
+          "question": "What information should I include when contacting support?",
+          "answer": "Include your account email, device/browser details, steps to reproduce the issue, and screenshots. This helps us resolve your issue faster.",
+          "icon": "📝"
+        }
+      ]
+    },
+    {
+      "id": "emergency-contact",
+      "number": 6,
+      "title": "Emergency & Safety",
+      "type": "emergency-contact",
+      "description": "Contact information for urgent safety concerns",
+      "specialStyle": true,
+      "emergencyContacts": [
+        {
+          "type": "Content Safety",
+          "description": "Report inappropriate, abusive, or dangerous content",
+          "contact": "safety@pathon.com",
+          "responseTime": "Within 2 hours",
+          "priority": "High"
+        },
+        {
+          "type": "Legal & DMCA",
+          "description": "Copyright infringement, legal notices, or DMCA takedown requests",
+          "contact": "legal@pathon.com",
+          "responseTime": "Within 24 hours",
+          "priority": "High"
+        },
+        {
+          "type": "Data Privacy",
+          "description": "Data removal requests, privacy concerns, or GDPR inquiries",
+          "contact": "privacy@pathon.com",
+          "responseTime": "Within 48 hours",
+          "priority": "Medium"
+        },
+        {
+          "type": "Press & Media",
+          "description": "Media inquiries, interview requests, or press releases",
+          "contact": "press@pathon.com",
+          "responseTime": "Within 24 hours",
+          "priority": "Medium"
+        }
+      ],
+      "note": "For immediate danger or threats to personal safety, contact local emergency services first, then notify us at safety@pathon.com."
+    },
+    {
+      "id": "business-hours",
+      "number": 7,
+      "title": "Business Hours",
+      "type": "business-hours",
+      "description": "Our operational hours across different regions",
+      "hours": [
+        {
+          "region": "Bangladesh (Headquarters)",
+          "timezone": "GMT+6",
+          "hours": "Sunday - Thursday: 9:00 AM - 6:00 PM",
+          "support": "24/7 via email and Live Chat",
+          "holidays": "All national holidays observed"
+        },
+        {
+          "region": "Southeast Asia",
+          "timezone": "GMT+8",
+          "hours": "Monday - Friday: 9:00 AM - 6:00 PM",
+          "support": "Business hours + 24/7 email support",
+          "holidays": "Regional holidays observed"
+        },
+        {
+          "region": "United States & Canada",
+          "timezone": "PST/EST",
+          "hours": "Monday - Friday: 9:00 AM - 5:00 PM",
+          "support": "Business hours + 24/7 email support",
+          "holidays": "Major US/Canadian holidays"
+        },
+        {
+          "region": "Europe & UK",
+          "timezone": "GMT/CET",
+          "hours": "Monday - Friday: 9:00 AM - 6:00 PM",
+          "support": "Business hours + 24/7 email support",
+          "holidays": "Major European holidays"
+        }
+      ],
+      "note": "Live Chat and Phone support follow local business hours. Email support is available 24/7 with responses within stated timeframes."
+    }
+  ]
+}

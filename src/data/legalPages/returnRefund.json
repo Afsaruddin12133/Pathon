@@ -1,0 +1,196 @@
+{
+  "id": "return-refund",
+  "title": "Return & Refund Policy",
+  "effectiveDate": "[Insert Date]",
+  "lastUpdated": "[Insert Date]",
+  "color": "blue",
+  "category": "legal",
+  "description": "Policy outlining refund eligibility and procedures",
+  "sections": [
+    {
+      "id": "introduction",
+      "number": null,
+      "title": null,
+      "type": "text",
+      "description": "Introduction to the refund policy",
+      "content": "At <span class=\"font-semibold text-blue-700\">Pathon</span>, we strive to deliver high-quality digital learning experiences. This Return & Refund Policy outlines the terms under which learners may request refunds for paid services, and how Pathon handles such requests in a fair, transparent, and balanced manner for both learners and content creators."
+    },
+    {
+      "id": "scope",
+      "number": 1,
+      "title": "Scope of Policy",
+      "type": "grid",
+      "description": "What this policy applies to",
+      "items": [
+        {
+          "title": "🎥 Recorded Courses",
+          "content": "Paid recorded courses",
+          "color": "purple",
+          "icon": "🎥"
+        },
+        {
+          "title": "📹 Live Classes",
+          "content": "Paid live classes or sessions",
+          "color": "blue",
+          "icon": "📹"
+        },
+        {
+          "title": "🧩 Problem Solving",
+          "content": "Paid interactions through the Problem Solving module",
+          "color": "green",
+          "icon": "🧩"
+        }
+      ],
+      "additionalContent": "<div class=\"bg-yellow-50 rounded-lg p-4 border-l-4 border-yellow-500\"><p class=\"text-gray-700 text-sm font-medium\">⚠️ No physical goods or downloadable products are sold on Pathon.</p></div>"
+    },
+    {
+      "id": "refund-eligibility",
+      "number": 2,
+      "title": "Refund Eligibility",
+      "type": "complex",
+      "description": "When users are eligible for refunds",
+      "intro": "A user may be eligible for a refund if a complaint is submitted <span class=\"font-bold text-blue-700\">within 48 hours</span> of purchasing or enrolling in a paid service, and the issue falls under any of the following categories:",
+      "items": [
+        {
+          "icon": "❌",
+          "title": "No Content Delivered",
+          "content": "The service lacks accessible, viewable, or functioning learning material.",
+          "color": "red"
+        },
+        {
+          "icon": "⚠️",
+          "title": "Misrepresentation",
+          "content": "The actual service content deviates significantly from its title, description, or preview.",
+          "color": "orange"
+        },
+        {
+          "icon": "📉",
+          "title": "Incomplete Content",
+          "content": "A substantial portion of the promised content is missing or not delivered as advertised.",
+          "color": "yellow"
+        }
+      ],
+      "note": "Refund requests must be submitted via the appropriate reporting mechanism within the platform during the 48-hour eligibility window."
+    },
+    {
+      "id": "holding-period",
+      "number": 3,
+      "title": "48-Hour Payment Holding Period",
+      "type": "special",
+      "description": "How payments are held before being released",
+      "specialStyle": true,
+      "content": "All payments for eligible digital services are held in <span class=\"font-bold text-blue-700\">escrow by Pathon for 48 hours</span> following the learner's purchase or enrollment.",
+      "subsections": [
+        {
+          "title": "✅ No Issues Reported",
+          "content": "If no issue is reported within this timeframe, the full amount is released automatically to the content provider.",
+          "color": "green"
+        },
+        {
+          "title": "⏸️ Refund Requested",
+          "content": "If a refund request is submitted, the payment will remain on hold until the resolution process is complete.",
+          "color": "orange"
+        }
+      ]
+    },
+    {
+      "id": "review-process",
+      "number": 4,
+      "title": "Refund Review and Resolution Process",
+      "type": "complex",
+      "description": "How refund requests are reviewed and resolved",
+      "items": [
+        {
+          "title": "🔍 When a refund request is submitted:",
+          "listItems": [
+            "• Pathon will assess the issue by reviewing the reported content, comparing it with the description, and contacting the content provider if needed.",
+            "• We aim to resolve most cases within <span class=\"font-semibold\">10 business days</span>.",
+            "• For non-straightforward or complex cases, Pathon may extend this timeframe at its sole discretion to ensure a fair and thorough investigation."
+          ]
+        },
+        {
+          "title": "⚖️ Outcome:",
+          "outcomes": [
+            {
+              "type": "valid",
+              "content": "A full refund will be issued to the learner."
+            },
+            {
+              "type": "invalid",
+              "content": "The held funds will be released to the content provider."
+            }
+          ]
+        }
+      ],
+      "note": "⚠️ Pathon's decision in all refund matters will be considered final and binding."
+    },
+    {
+      "id": "non-refundable",
+      "number": 5,
+      "title": "Non-Refundable Circumstances",
+      "type": "list",
+      "description": "Situations where refunds are not provided",
+      "intro": "Refunds will <span class=\"font-bold text-red-700\">not</span> be issued under the following circumstances:",
+      "items": [
+        "✗ The learner changes their mind after purchase",
+        "✗ The learner accessed or substantially completed the content before submitting a complaint",
+        "✗ The learner failed to attend a scheduled live class without prior notice or valid justification",
+        "✗ The refund request was submitted after the 48-hour eligibility window"
+      ]
+    },
+    {
+      "id": "abuse-prevention",
+      "number": 6,
+      "title": "Abuse Prevention",
+      "type": "special",
+      "description": "Measures to prevent misuse of the refund system",
+      "content": "To maintain fairness and platform integrity, users who are found to be repeatedly misusing the refund process may be subject to:",
+      "listItems": [
+        "⚠️ Refund privileges being limited or suspended",
+        "⚠️ Account-level review for potential misuse"
+      ]
+    },
+    {
+      "id": "refund-method",
+      "number": 7,
+      "title": "Refund Method and Timing",
+      "type": "grid",
+      "description": "How and when refunds are processed",
+      "items": [
+        {
+          "title": "💳 Refund Method",
+          "content": "All approved refunds will be processed to the original method of payment",
+          "color": "green",
+          "icon": "💳"
+        },
+        {
+          "title": "⏱️ Processing Time",
+          "content": "Depending on the payment gateway or financial provider, it may take <span class=\"font-semibold\">5 to 10 business days</span> for the refunded amount to reflect",
+          "color": "blue",
+          "icon": "⏱️"
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "number": 8,
+      "title": "Questions and Contact",
+      "type": "contact",
+      "description": "How to contact support for refund questions",
+      "specialStyle": true,
+      "content": "For refund-related inquiries or support:",
+      "items": [
+        {
+          "icon": "📧",
+          "label": "Email",
+          "value": "[Insert official support email]"
+        },
+        {
+          "icon": "🌐",
+          "label": "Website",
+          "value": "[Insert Pathon website URL]"
+        }
+      ]
+    }
+  ]
+}

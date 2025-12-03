@@ -1,0 +1,154 @@
+{
+  "id": "privacy-policy",
+  "title": "Privacy Policy",
+  "effectiveDate": "July 5, 2025",
+  "lastUpdated": "[Insert Date]",
+  "color": "purple",
+  "category": "legal",
+  "description": "How we collect, use, and protect your personal information",
+  "sections": [
+    {
+      "id": "introduction",
+      "number": null,
+      "title": null,
+      "type": "text",
+      "description": "Introduction to the privacy policy",
+      "content": "This Privacy Policy (\"Policy\") describes how <span class=\"font-semibold text-purple-700\">Pathon</span> (also referred to as \"we,\" \"us,\" or \"our\") collects, uses, discloses, and protects your personal data when you access or use our platform, including the website, mobile applications, and any associated services (\"Services\"). By using the Services, you consent to the practices described in this Policy."
+    },
+    {
+      "id": "information-we-collect",
+      "number": 1,
+      "title": "Information We Collect",
+      "type": "complex",
+      "description": "Types of data collected by Pathon",
+      "content": "We collect two types of data: personal information (such as name or contact details) and usage information (such as device details or browsing behavior).",
+      "subsections": [
+        {
+          "title": "1.1 Information You Provide",
+          "items": [
+            "<strong>Account Data:</strong> Mobile number and email for OTP-based login.",
+            "<strong>Profile Data:</strong> Name, photo, date of birth, address, education, profession.",
+            "<strong>Content Data:</strong> Course titles, descriptions, YouTube links, uploaded files, and tags.",
+            "<strong>Financial Data:</strong> Payment IDs or mobile wallet numbers (but not sensitive info like balance or PIN).",
+            "<strong>Feedback:</strong> Course reviews, ratings, and complaint submissions."
+          ]
+        },
+        {
+          "title": "1.2 Information Collected Automatically",
+          "items": [
+            "<strong>System Data:</strong> Device type, OS, IP address, browser, and technical diagnostics.",
+            "<strong>Usage Data:</strong> Interactions like course views, search queries, page clicks, and time spent.",
+            "<strong>Geographic Data:</strong> Approximate city and country based on IP address."
+          ]
+        },
+        {
+          "title": "1.3 Cookies and Tracking",
+          "content": "We use cookies and related technologies to personalize your experience, monitor performance, and analyze usage patterns."
+        }
+      ]
+    },
+    {
+      "id": "how-we-use-data",
+      "number": 2,
+      "title": "How We Use Your Data",
+      "type": "text",
+      "description": "Purposes for which data is used",
+      "content": "We use your data to operate and improve our Services, including:",
+      "additionalContent": "<div class=\"grid sm:grid-cols-2 gap-3\"><div class=\"flex items-start gap-2 bg-purple-50 rounded-lg p-3\"><span class=\"text-purple-600 font-bold text-xl\">✓</span><span class=\"text-gray-700 text-sm\">Creating and managing accounts</span></div><div class=\"flex items-start gap-2 bg-purple-50 rounded-lg p-3\"><span class=\"text-purple-600 font-bold text-xl\">✓</span><span class=\"text-gray-700 text-sm\">Customizing content and recommendations</span></div><div class=\"flex items-start gap-2 bg-purple-50 rounded-lg p-3\"><span class=\"text-purple-600 font-bold text-xl\">✓</span><span class=\"text-gray-700 text-sm\">Authenticating logins via OTP</span></div><div class=\"flex items-start gap-2 bg-purple-50 rounded-lg p-3\"><span class=\"text-purple-600 font-bold text-xl\">✓</span><span class=\"text-gray-700 text-sm\">Processing payments and instructor payouts</span></div><div class=\"flex items-start gap-2 bg-purple-50 rounded-lg p-3\"><span class=\"text-purple-600 font-bold text-xl\">✓</span><span class=\"text-gray-700 text-sm\">Investigating fraud or misconduct</span></div><div class=\"flex items-start gap-2 bg-purple-50 rounded-lg p-3\"><span class=\"text-purple-600 font-bold text-xl\">✓</span><span class=\"text-gray-700 text-sm\">Delivering notifications, reminders, and announcements</span></div><div class=\"flex items-start gap-2 bg-purple-50 rounded-lg p-3 sm:col-span-2\"><span class=\"text-purple-600 font-bold text-xl\">✓</span><span class=\"text-gray-700 text-sm\">Conducting analytics to improve features and usability</span></div></div>"
+    },
+    {
+      "id": "information-sharing",
+      "number": 3,
+      "title": "Information Sharing",
+      "type": "grid",
+      "description": "What information is shared and with whom",
+      "items": [
+        {
+          "title": "🔒 Not Shared Publicly",
+          "content": "",
+          "color": "red",
+          "icon": "🔒",
+          "listItems": [
+            "✗ Mobile number",
+            "✗ Email address",
+            "✗ Private course content",
+            "✗ Sensitive financial info"
+          ]
+        },
+        {
+          "title": "👥 May Be Shared",
+          "content": "",
+          "color": "green",
+          "icon": "👥",
+          "listItems": [
+            "✓ Public profile data (excluding contact info)",
+            "✓ Public course content",
+            "✓ Problem-solving module responses",
+            "✓ Feedback and ratings"
+          ]
+        }
+      ],
+      "additionalContent": "<div class=\"mt-5 bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg\"><p class=\"text-gray-800 font-semibold flex items-center gap-2\"><span class=\"text-2xl\">⚠️</span> We do not sell your data to any third party.</p></div>"
+    },
+    {
+      "id": "data-security",
+      "number": 4,
+      "title": "Data Security",
+      "type": "special",
+      "description": "How we protect your information",
+      "content": "We use <span class=\"font-semibold text-blue-700\">encryption</span>, <span class=\"font-semibold text-blue-700\">access controls</span>, and <span class=\"font-semibold text-blue-700\">secure storage practices</span> to protect your information. However, no digital platform can guarantee 100% security."
+    },
+    {
+      "id": "third-party-services",
+      "number": 5,
+      "title": "Third-Party Services",
+      "type": "text",
+      "description": "External services used by the platform",
+      "content": "Some platform features (e.g., live video, YouTube embedding, payment gateways) are powered by third parties. We do not control how they handle your data, so we recommend reviewing their privacy policies separately."
+    },
+    {
+      "id": "childrens-data",
+      "number": 6,
+      "title": "Children's Data",
+      "type": "text",
+      "description": "Policy regarding data from children",
+      "content": "Pathon is open to all ages. While age-based content filters are under development, parents and guardians are encouraged to supervise minors' usage."
+    },
+    {
+      "id": "user-conduct",
+      "number": 7,
+      "title": "User Conduct and Content",
+      "type": "text",
+      "description": "Responsibilities regarding user content",
+      "content": "Users are solely responsible for the content they create or upload. Pathon reserves the right to remove content that violates laws, community guidelines, or ethical standards. Complaints can be filed within a limited time after course enrollment."
+    },
+    {
+      "id": "changes-to-policy",
+      "number": 8,
+      "title": "Changes to This Policy",
+      "type": "text",
+      "description": "How and when the policy may be updated",
+      "content": "We may update this Policy periodically. Significant changes will be notified via platform banners or email. Continued use indicates agreement to the updated Policy."
+    },
+    {
+      "id": "contact",
+      "number": 9,
+      "title": "Contact Us",
+      "type": "contact",
+      "description": "How to contact Pathon regarding privacy",
+      "specialStyle": true,
+      "items": [
+        {
+          "icon": "📧",
+          "label": "Email",
+          "value": "[Insert official contact email]"
+        },
+        {
+          "icon": "🏢",
+          "label": "Address",
+          "value": "[Insert Pathon physical or legal address]"
+        }
+      ]
+    }
+  ]
+}
