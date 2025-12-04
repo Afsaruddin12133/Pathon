@@ -1,6 +1,7 @@
 import React, { useMemo, useRef, useState } from "react";
 import { FiCamera } from "react-icons/fi";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
+import { api } from "../../api/apiClient";
 
 /* ---------------- Constants ---------------- */
 const CLASS_LEVELS = [
@@ -257,15 +258,7 @@ const CreateRecordClass = () => {
       }
       console.groupEnd();
 
-      const res = await fetch(`${Base_url}createCLass`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${userToken}`,
-        },
-        body: formData,
-        signal: controller.signal,
-      });
+      const res = await api.post(`createCLass`, formData);
       const ct = res.headers.get("content-type") || "";
       const payload = ct.includes("application/json")
         ? await res.json().catch(() => ({}))

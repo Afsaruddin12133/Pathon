@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 import defaultAvatar from "../../assets/Images/pfp.png";
 import { toast } from "react-toastify";
+import { api } from "../../api/apiClient";
 
 const Solution = ({ subjectId, isOwner }) => {
   const [loading, setLoading] = useState(true);
@@ -23,12 +24,7 @@ const Solution = ({ subjectId, isOwner }) => {
         subjectId
       )}&fileUrl=${encodeURIComponent(fileUrl)}`;
 
-      const response = await fetch(url, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-      });
+      const response = await api.get(url)
 
       if (!response.ok) {
         throw new Error(`Failed to delete file. Status: ${response.status}`);
@@ -80,7 +76,6 @@ const Solution = ({ subjectId, isOwner }) => {
     if (!subjectId) return;
 
     if (isOwner) {
-      // Fetch solution submitters
       const fetchSolutionPersons = async () => {
         try {
           setLoading(true);
@@ -93,24 +88,12 @@ const Solution = ({ subjectId, isOwner }) => {
             throw new Error("Authentication required");
           }
 
-          const response = await fetch(
-            `${Base_url}getProblemSolutionPersons?subject_id=${encodeURIComponent(
-              subjectId
-            )}`,
-            {
-              headers: {
-                Accept: "application/json",
-                Authorization: `Bearer ${userToken}`,
-              },
-            }
-          );
+          const endpoint = `/getProblemSolutionPersons?subject_id=${encodeURIComponent(
+            subjectId
+          )}`;
+          const response = await api.get(endpoint);
 
-          if (!response.ok) {
-            throw new Error("Failed to fetch solution submitters");
-          }
-
-          const data = await response.json();
-          setSolutionPersons(data?.data || []);
+          setSolutionPersons(response?.data || []);
         } catch (err) {
           console.error("Error fetching solution persons:", err);
           setError(err.message || "Failed to load solution submitters");
@@ -121,44 +104,30 @@ const Solution = ({ subjectId, isOwner }) => {
 
       fetchSolutionPersons();
     } else {
-      // Student view - no initial fetch needed
       setLoading(false);
     }
   }, [subjectId, isOwner]);
 
-  const fetchIndividualSolution = async (ownerId) => {
-    try {
-      const authData = JSON.parse(localStorage.getItem("auth") || "{}");
-      const userToken = authData?.user?.token;
+const fetchIndividualSolution = async (ownerId) => {
+  try {
+    const authData = JSON.parse(localStorage.getItem("auth") || "{}");
+    const userToken = authData?.user?.token;
 
-      if (!userToken) {
-        throw new Error("Authentication required");
-      }
-
-      const response = await fetch(
-        `${Base_url}getIndividualProblemSolution?subject_id=${encodeURIComponent(
-          subjectId
-        )}&owner_id=${ownerId}`,
-        {
-          headers: {
-            Accept: "application/json",
-            Authorization: `Bearer ${userToken}`,
-          },
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch individual solution");
-      }
-
-      const data = await response.json();
-      return data?.data || [];
-    } catch (err) {
-      console.error("Error fetching individual solution:", err);
-      throw err;
+    if (!userToken) {
+      throw new Error("Authentication required");
     }
-  };
 
+    const endpoint = `/getIndividualProblemSolution?subject_id=${encodeURIComponent(
+      subjectId
+    )}&owner_id=${ownerId}`;
+    const response = await api.get(endpoint);
+
+    return response?.data || [];
+  } catch (err) {
+    console.error("Error fetching individual solution:", err);
+    throw err;
+  }
+};
   const handlePersonClick = async (person) => {
     try {
       setSelectedPerson(person);
@@ -195,13 +164,8 @@ const Solution = ({ subjectId, isOwner }) => {
       formData.append("ratingPrevious", ratingPrevious.toString());
       formData.append("user_id", selectedPerson.owner_id.toString());
 
-      const response = await fetch(`${Base_url}addUpdateRating`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-        body: formData,
-      });
+      const url = `addUpdateRating`;
+      const response = await api.post(url, formData);
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
@@ -288,13 +252,8 @@ const Solution = ({ subjectId, isOwner }) => {
         });
       }
 
-      const response = await fetch(`${Base_url}insertSolution`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-        body: formData,
-      });
+       const endpoint = "insertSolution";
+      const response = await api.post(endpoint, formData);
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));

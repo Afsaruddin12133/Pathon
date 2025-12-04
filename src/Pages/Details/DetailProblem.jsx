@@ -9,7 +9,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { AiOutlineClockCircle, AiFillStar } from "react-icons/ai";
 import { BiHash } from "react-icons/bi";
 import { BsPlayFill } from "react-icons/bs";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 import { getUserId, getUserToken } from "../../utils/auth";
 import { toast, ToastContainer } from "react-toastify";
 import Buyers from "../../Component/Details/Buyer";
@@ -18,6 +18,7 @@ import Problem from "../../Component/Details/Problem";
 import Solution from "../../Component/Details/Solution";
 import Solver from "../../Component/Details/solver";
 import "react-toastify/dist/ReactToastify.css";
+import { api } from "../../api/apiClient";
 /** -----------------------------
  * Small utilities
  * ------------------------------*/
@@ -139,15 +140,17 @@ async function fetchClassDetails(subjectId, signal) {
     subjectId
   )}`;
 
-  const res = await fetch(url, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${userToken}`,
-    },
-    signal,
-  });
+  const res = await api.get(url)
+
+  // const res = await fetch(url, {
+  //   method: "GET",
+  //   headers: {
+  //     Accept: "application/json",
+  //     "Content-Type": "application/json",
+  //     Authorization: `Bearer ${userToken}`,
+  //   },
+  //   signal,
+  // });
 
   if (!res.ok) {
     if (res.status === 401) {
@@ -305,15 +308,8 @@ const DetailsProblem = () => {
 
     setBuying(true);
     try {
-      const response = await fetch(`${Base_url}buyCourse`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: params.toString(),
-      });
+      const endpoint = `buyCourse`;
+      const response = await api.post(endpoint, params.toString());
 
       const payload = await response.json().catch(() => ({}));
 
@@ -386,7 +382,7 @@ const DetailsProblem = () => {
     }
 
     try {
-      const token = withAuthToken();
+      //const token = withAuthToken();
       setNegotiationsError("");
       setNegotiationMessage("");
       setNegotiationActionId(`update:${studentId}`);
@@ -400,15 +396,9 @@ const DetailsProblem = () => {
         type: negotiationType,
       });
 
-      const res = await fetch(`${Base_url}courseNegotiable`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body,
-      });
+      const endpoint = "courseNegotiable"
+      const res = await api.post(endpoint, body);
+
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -428,7 +418,7 @@ const DetailsProblem = () => {
 
   const handleNegotiationDelete = async (studentId) => {
     try {
-      const token = withAuthToken();
+      //const token = withAuthToken();
       setNegotiationsError("");
       setNegotiationMessage("");
       setNegotiationActionId(`delete:${studentId}`);
@@ -437,19 +427,22 @@ const DetailsProblem = () => {
         studentId
       )}&subject_id=${encodeURIComponent(subjectCode || "")}`;
 
-      const res = await fetch(url, {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body: createUrlEncodedBody({
-          subject_id: subjectCode,
-          user_id: studentId,
-          type: negotiationType,
-        }),
-      });
+
+      const res = await api.del(url);
+
+      // const res = await fetch(url, {
+      //   method: "DELETE",
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-Type": "application/x-www-form-urlencoded",
+      //     Authorization: `Bearer ${token}`,
+      //   },
+      //   body: createUrlEncodedBody({
+      //     subject_id: subjectCode,
+      //     user_id: studentId,
+      //     type: negotiationType,
+      //   }),
+      // });
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -467,25 +460,18 @@ const DetailsProblem = () => {
 
   const handleTutorAccept = async (studentId) => {
     try {
-      const token = withAuthToken();
+      //const token = withAuthToken();
       setNegotiationsError("");
       setNegotiationMessage("");
       setNegotiationActionId(`accept:${studentId}`);
 
-      const res = await fetch(`${Base_url}buyCourse`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body: createUrlEncodedBody({
+      const endpoint = "buyCourse";
+      const res = await api.post(endpoint, createUrlEncodedBody({
           subject_id: subjectCode,
           user_id: studentId,
           status: "1",
           type: negotiationType,
-        }),
-      });
+        }))
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -518,22 +504,15 @@ const DetailsProblem = () => {
         throw new Error("Enter a valid offer amount");
       }
 
-      const res = await fetch(`${Base_url}courseNegotiable`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body: createUrlEncodedBody({
+      const endpoint = "courseNegotiable"
+      const res = await api.post(endpoint, createUrlEncodedBody({
           subject_id: subjectCode,
           status: "1",
           tutor_offer: myNegotiation?.tutor_offer ?? tutorPrice,
           student_offer: offerValue,
           user_id: userId,
           type: negotiationType,
-        }),
-      });
+        }));
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -553,7 +532,7 @@ const DetailsProblem = () => {
 
   const handleStudentDelete = async () => {
     try {
-      const token = withAuthToken();
+      //const token = withAuthToken();
       const userId = resolveAuthUserId();
       if (!userId) throw new Error("User information missing");
 
@@ -565,19 +544,21 @@ const DetailsProblem = () => {
         userId
       )}&subject_id=${encodeURIComponent(subjectCode || "")}`;
 
-      const res = await fetch(url, {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body: createUrlEncodedBody({
-          subject_id: subjectCode,
-          user_id: userId,
-          type: negotiationType,
-        }),
-      });
+      const res = await api.del(url); 
+
+      // const res = await fetch(url, {
+      //   method: "DELETE",
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-Type": "application/x-www-form-urlencoded",
+      //     Authorization: `Bearer ${token}`,
+      //   },
+      //   body: createUrlEncodedBody({
+      //     subject_id: subjectCode,
+      //     user_id: userId,
+      //     type: negotiationType,
+      //   }),
+      // });
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -597,7 +578,7 @@ const DetailsProblem = () => {
 
   const handleStudentBuy = async () => {
     try {
-      const token = withAuthToken();
+      //const token = withAuthToken();
       const userId = resolveAuthUserId();
       if (!userId) throw new Error("User information missing");
 
@@ -605,20 +586,13 @@ const DetailsProblem = () => {
       setNegotiationMessage("");
       setNegotiationActionId("student:buy");
 
-      const res = await fetch(`${Base_url}buyCourse`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body: createUrlEncodedBody({
+      const endpoint = "buyCourse" ;
+      const res = await api.post(endpoint, createUrlEncodedBody({
           subject_id: subjectCode,
           user_id: userId,
           status: "2",
           type: negotiationType,
-        }),
-      });
+        }));
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -725,14 +699,15 @@ const DetailsProblem = () => {
           const url = `${Base_url}tutorNegotiable?subject_id=${encodeURIComponent(
             subjectCode
           )}`;
-          const res = await fetch(url, {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            signal: controller.signal,
-          });
+          const res = await api.get(url);
+          // const res = await fetch(url, {
+          //   method: "GET",
+          //   headers: {
+          //     Accept: "application/json",
+          //     Authorization: `Bearer ${token}`,
+          //   },
+          //   signal: controller.signal,
+          // });
 
           if (!res.ok) {
             if (res.status === 404) {
@@ -759,14 +734,7 @@ const DetailsProblem = () => {
           const url = `${Base_url}checkStudentClassNegotiable?subject_id=${encodeURIComponent(
             subjectCode
           )}`;
-          const res = await fetch(url, {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            signal: controller.signal,
-          });
+          const res = await api.get(url);
 
           if (res.status === 404) {
             if (isMounted) {

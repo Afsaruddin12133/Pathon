@@ -145,3 +145,8 @@ export function clearAuth() {
   }
 }
 
+export function getToken() {
+  const auth = JSON.parse(localStorage.getItem("auth"));
+  return auth?.token || "";
+}
+

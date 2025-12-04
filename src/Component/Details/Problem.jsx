@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 import { toast } from "react-toastify";
+import { api } from "../../api/apiClient";
 
 const resolveAuthToken = () => {
   const auth = JSON.parse(localStorage.getItem("auth") || "{}");
@@ -19,34 +20,27 @@ const Problem = ({ subjectId, onSolverData, isOwner }) => {
   const [error, setError] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Handler to close problem solving (only owner)
-  const handleCloseProblemSolving = async () => {
-    try {
-      const token = resolveAuthToken();
-      if (!token) {
-        toast.error("Authentication required to close problem solving.");
-        return;
-      }
-      const url = `${Base_url}closeProblemSolving?subject_id=${encodeURIComponent(
-        subjectId
-      )}`;
-      const res = await fetch(url, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (!res.ok) {
-        throw new Error(
-          `Failed to close problem solving. Status: ${res.status}`
-        );
-      }
-      const json = await res.json().catch(() => ({}));
-      toast.success(json.message || "Problem solving closed successfully.");
-    } catch (error) {
-      toast.error(error.message || "Error closing problem solving.");
+const handleCloseProblemSolving = async () => {
+  try {
+    const token = resolveAuthToken();
+    if (!token) {
+      toast.error("Authentication required to close problem solving.");
+      return;
     }
-  };
+
+    const endpoint = `/closeProblemSolving?subject_id=${encodeURIComponent(
+      subjectId
+    )}`;
+    const response = await api.get(endpoint);
+
+    toast.success(
+      response?.message || "Problem solving closed successfully."
+    );
+
+  } catch (error) {
+    toast.error(error.message || "Error closing problem solving.");
+  }
+};
 
   useEffect(() => {
     if (!subjectId) return;
@@ -56,44 +50,25 @@ const Problem = ({ subjectId, onSolverData, isOwner }) => {
         setLoading(true);
         setError("");
 
-        const authData = JSON.parse(localStorage.getItem("auth") || "{}");
-        const userToken = authData?.user?.token;
-
-        if (!userToken) {
-          throw new Error("Authentication required");
-        }
-
-        const url = `${Base_url}getProblemDetails?subject_id=${encodeURIComponent(
+        const endpoint = `/getProblemDetails?subject_id=${encodeURIComponent(
           subjectId
         )}`;
+        const data = await api.get(endpoint);
 
-        const response = await fetch(url, {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${userToken}`,
-          },
-        });
-        console.log("Problem fetch response:", response);
-
-        if (!response.ok) {
-          if (response.status === 401) {
-            localStorage.removeItem("auth");
-            throw new Error("Session expired. Please login again.");
-          }
-          throw new Error(`HTTP ${response.status}`);
-        }
-
-        const data = await response.json();
         setProblemData(data);
-
-        // Pass solver data to parent component
         if (data?.details && onSolverData) {
           onSolverData(data.details);
         }
       } catch (err) {
         console.error("Error fetching problem details:", err);
+
+        // Custom session-expired message
+        if (String(err.message).includes("401")) {
+          localStorage.removeItem("auth");
+          setError("Session expired. Please login again.");
+          return;
+        }
+
         setError(err.message || "Failed to load problem details");
       } finally {
         setLoading(false);
@@ -176,12 +151,12 @@ const Problem = ({ subjectId, onSolverData, isOwner }) => {
                   className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm cursor-pointer hover:shadow-md transition-shadow"
                   onClick={() =>
                     openImageModal(
-                      `https://apidocumentationpathon.pathon.app/${item.url}`
+                      `${Base_url}${item.url}`
                     )
                   }
                 >
                   <img
-                    src={`https://apidocumentationpathon.pathon.app/${item.url}`}
+                    src={`${Base_url}${item.url}`}
                     alt={`Problem image ${index + 1}`}
                     className="w-full h-48 object-cover"
                     onError={(e) => {
@@ -217,7 +192,7 @@ const Problem = ({ subjectId, onSolverData, isOwner }) => {
                     </div>
                   </div>
                   <a
-                    href={`https://apidocumentationpathon.pathon.app/${item.url}`}
+                    href={`${Base_url}${item.url}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-3 py-1 text-sm font-medium text-purple-700 bg-purple-100 rounded-lg hover:bg-purple-200 transition-colors"

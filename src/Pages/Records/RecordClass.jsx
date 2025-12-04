@@ -2,13 +2,13 @@ import ClassCard from "../../Component/Shared/ClassCard/ClassCard";
 import Pagination from "../../Component/Shared/Pagination/Pagination";
 import useClasses from "../../hooks/useClasses";
 
+
 const RecordClass = () => {
-  const { classData, loading, error, pagination, setPage } = useClasses(1);
-  
+  const { classData, loading, error, pagination, setPage } = useClasses(1,1);
 
   return (
     <div className="bg-blue-50 py-10">
-      <div className="bg-blue-50 py-10 max-w-7xl px-4 py-10 mx-auto">
+      <div className="bg-blue-50 py-10 max-w-7xl px-4 mx-auto">
         <h1 className="text-center text-3xl font-bold mb-6">
           <span className="inline-flex items-center rounded-lg border border-purple-600 px-5 py-1.5 text-text-black/80 font-bold text-2xl lg:text-3xl">
             Recorded Class

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router";
 
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
+import { api } from "../../api/apiClient";
 // ✅ helper for token
 const getToken = () => {
   try {
@@ -58,18 +59,8 @@ const Episodes = () => {
     };
 
     try {
-      const response = await fetch(
-        // "https://apidocumentationpathon.pathon.app/api/addClassItem",
-        `${Base_url}addClassItem`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            Authorization: `Bearer ${token}`,
-          },
-          body: new URLSearchParams(payload),
-        }
-      );
+      const endpoint = `addClassItem`;  
+      const response = await api.post(endpoint, payload);
 
       const data = await response.json();
       console.log("API Response:", data);

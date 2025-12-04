@@ -2,7 +2,9 @@ import ClassCard from "../../Component/Shared/ClassCard/ClassCard";
 import Pagination from "../../Component/Shared/Pagination/Pagination";
 import useClasses from "../../hooks/useClasses";
 
+
 const LiveClass = () => {
+
   const { classData, loading, error, pagination, setPage } = useClasses(2);
 
   return (

@@ -1,5 +1,5 @@
-import { Base_url } from "../../../../api/Api";
-
+import { Base_url } from "../../../../api/api";
+import { api } from "../../../../api/apiClient";
 
 export const defaultHeaders = {
   "Content-Type": "application/json",
@@ -8,15 +8,11 @@ export const defaultHeaders = {
 export async function sendOtpToApi(phoneE164) {
   const localNumber = phoneE164.replace(/^\+\d{2}/, "");
 
-  const response = await fetch(`${Base_url}sendOtp`, {
-    method: "POST",
-    headers: defaultHeaders,
-    body: JSON.stringify({ phone: localNumber }),
-  });
+  const endpoint = `sendOtp`;
 
-  const data = await response.json();
+  const data = await api.post(endpoint, { phone: localNumber });
 
-  if (!response.ok || data.code !== 200) {
+  if ( data.code !== 200) {
     throw new Error(data?.message || "Failed to send OTP");
   }
 

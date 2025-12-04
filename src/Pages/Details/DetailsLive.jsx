@@ -7,8 +7,9 @@ import { JitsiMeeting } from "@jitsi/react-sdk";
 import { ShimmerThumbnail, ShimmerTitle } from "react-shimmer-effects";
 import { toast } from "react-toastify";
 
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 import Buyers from "../../Component/Details/Buyer";
+import { api } from "../../api/apiClient";
 
 /** -----------------------------
  * Small utilities
@@ -77,16 +78,7 @@ async function fetchClassDetails(subjectId, signal) {
     subjectId
   )}`;
 
-  const res = await fetch(url, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${userToken}`,
-    },
-
-    signal,
-  });
+  const res = await api.get(url);
 
   if (!res.ok) {
     if (res.status === 401) {
@@ -113,16 +105,7 @@ async function fetchLiveClassData(courseId, signal) {
     courseId
   )}`;
 
-  const res = await fetch(url, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${userToken}`,
-    },
-    signal,
-  });
-  console.log(res);
+  const res = await api.get(url);
 
   if (!res.ok) {
     if (res.status === 401) {
@@ -395,15 +378,7 @@ const DetailsLive = () => {
         type: CLASS_TYPE,
       });
 
-      const res = await fetch(`${Base_url}courseNegotiable`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body,
-      });
+      const res = await api.post(`courseNegotiable`, body);
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -423,7 +398,7 @@ const DetailsLive = () => {
 
   const handleNegotiationDelete = async (studentId) => {
     try {
-      const token = withAuthToken();
+      //const token = withAuthToken();
       setNegotiationsError("");
       setNegotiationMessage("");
       setNegotiationActionId(`delete:${studentId}`);
@@ -432,19 +407,7 @@ const DetailsLive = () => {
         studentId
       )}&subject_id=${encodeURIComponent(subjectCode || "")}`;
 
-      const res = await fetch(url, {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body: createUrlEncodedBody({
-          subject_id: subjectCode,
-          user_id: studentId,
-          type: CLASS_TYPE,
-        }),
-      });
+      const res = await api.delete(url);
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -462,25 +425,17 @@ const DetailsLive = () => {
 
   const handleTutorAccept = async (studentId) => {
     try {
-      const token = withAuthToken();
+      //const token = withAuthToken();
       setNegotiationsError("");
       setNegotiationMessage("");
       setNegotiationActionId(`accept:${studentId}`);
 
-      const res = await fetch(`${Base_url}buyCourse`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body: createUrlEncodedBody({
+      const res = await api.post(`buyCourse`, createUrlEncodedBody({
           subject_id: subjectCode,
           user_id: studentId,
           status: "1",
           type: CLASS_TYPE,
-        }),
-      });
+        }));
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -500,7 +455,7 @@ const DetailsLive = () => {
 
   const handleStudentSubmit = async () => {
     try {
-      const token = withAuthToken();
+      //const token = withAuthToken();
       const userId = resolveAuthUserId();
       if (!userId) throw new Error("User information missing");
 
@@ -513,22 +468,14 @@ const DetailsLive = () => {
         throw new Error("Enter a valid offer amount");
       }
 
-      const res = await fetch(`${Base_url}courseNegotiable`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body: createUrlEncodedBody({
+      const res = await api.post(`courseNegotiable`, createUrlEncodedBody({
           subject_id: subjectCode,
           status: "1",
           tutor_offer: myNegotiation?.tutor_offer ?? tutorPrice,
           student_offer: offerValue,
           user_id: userId,
           type: CLASS_TYPE,
-        }),
-      });
+        }));
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -560,19 +507,7 @@ const DetailsLive = () => {
         userId
       )}&subject_id=${encodeURIComponent(subjectCode || "")}`;
 
-      const res = await fetch(url, {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body: createUrlEncodedBody({
-          subject_id: subjectCode,
-          user_id: userId,
-          type: CLASS_TYPE,
-        }),
-      });
+      const res = await api.delete(url);
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -592,7 +527,7 @@ const DetailsLive = () => {
 
   const handleStudentBuy = async () => {
     try {
-      const token = withAuthToken();
+      //const token = withAuthToken();
       const userId = resolveAuthUserId();
       if (!userId) throw new Error("User information missing");
 
@@ -600,25 +535,17 @@ const DetailsLive = () => {
       setNegotiationMessage("");
       setNegotiationActionId("student:buy");
 
-      const res = await fetch(`${Base_url}buyCourse`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body: createUrlEncodedBody({
+      const res = await api.post(`buyCourse`, createUrlEncodedBody({
           subject_id: subjectCode,
           user_id: userId,
           status: "2",
           type: CLASS_TYPE,
-        }),
-      });
+        }));
 
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok || json?.error) {
+     // const json = await res.json().catch(() => ({}));
+      if (!res.ok || res?.error) {
         throw new Error(
-          json?.message || json?.error || "Failed to purchase course"
+          res?.message || res?.error || "Failed to purchase course"
         );
       }
 
@@ -633,24 +560,16 @@ const DetailsLive = () => {
 
   const handleDirectBuy = async () => {
     try {
-      const token = withAuthToken();
+      //const token = withAuthToken();
       const userId = resolveAuthUserId();
       if (!userId) throw new Error("User information missing");
 
-      const res = await fetch(`${Base_url}buyCourse`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-        body: createUrlEncodedBody({
+      const res = await api.post(`buyCourse`, createUrlEncodedBody({
           subject_id: subjectCode,
           user_id: userId,
           status: "0",
           type: CLASS_TYPE,
-        }),
-      });
+        }));
 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json?.error) {
@@ -697,14 +616,7 @@ const DetailsLive = () => {
           const url = `${Base_url}tutorNegotiable?subject_id=${encodeURIComponent(
             subjectCode
           )}`;
-          const res = await fetch(url, {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            signal: controller.signal,
-          });
+          const res = await api.get(url);
 
           if (!res.ok) {
             if (res.status === 404) {
@@ -731,14 +643,7 @@ const DetailsLive = () => {
           const url = `${Base_url}checkStudentClassNegotiable?subject_id=${encodeURIComponent(
             subjectCode
           )}`;
-          const res = await fetch(url, {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            signal: controller.signal,
-          });
+          const res = await api.get(url);
 
           if (res.status === 404) {
             if (isMounted) {
@@ -814,14 +719,7 @@ const DetailsLive = () => {
             courseId
           )}`;
 
-      const res = await fetch(url, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await api.get(url);
 
       if (!res.ok) {
         throw new Error(`HTTP ${res.status}`);
@@ -855,14 +753,9 @@ const DetailsLive = () => {
     formData.append("id", userId.toString());
     formData.append("previousRating", "0");
 
-    const res = await fetch(`${Base_url}addReview`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: formData,
-    });
+    const endpoint = `addReview`;
+
+    const res = await api.post(endpoint, formData); 
 
     if (!res.ok) {
       const json = await res.json().catch(() => ({}));

@@ -15,7 +15,6 @@ import PublicLayout from "./layouts/PublicLayout.jsx";
 // Public Pages
 // -----------------------------
 import Home from "./Pages/Home/Home.jsx";
-import Recom from "./Pages/Reco/Recom.jsx";
 
 // Static Info Pages
 import AboutUs from "./Pages/StaticPages/AboutUs/AboutUs.jsx";
@@ -80,8 +79,6 @@ import UpdateRecordClassPage from "./Pages/UpdateClass/UpdateRecordClassPage.jsx
 import UpdateProblemClassPage from "./Pages/UpdateClass/UpdateProblemClassPage.jsx";
 import { ToastContainer } from "react-toastify";
 
-
-
 // ======================================================================
 // ROUTER CONFIGURATION
 // ======================================================================
@@ -110,8 +107,6 @@ const router = createBrowserRouter([
 
       // Home / For You
       { path: "/", element: <Home /> },
-      { path: "/for-you", element: <Recom /> },
-
       // Profile & User Routes
       { path: "/profile", element: <Profiles /> },
       { path: "/user-profile/:user_id?", element: <UserProfiles /> },
@@ -174,6 +169,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
-     <ToastContainer  />
+    <ToastContainer />
   </StrictMode>
 );

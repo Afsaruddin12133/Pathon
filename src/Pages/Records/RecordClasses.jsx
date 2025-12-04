@@ -3,7 +3,7 @@ import { MdLiveTv } from "react-icons/md";
 import { RiBroadcastLine } from "react-icons/ri";
 import { LuClipboardList } from "react-icons/lu";
 import { FaShapes } from "react-icons/fa";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 
 const baseCards = [
   {

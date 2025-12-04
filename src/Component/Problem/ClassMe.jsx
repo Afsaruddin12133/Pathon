@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 
 const getUserId = () => {
   try {
@@ -37,6 +37,7 @@ import { RiLiveLine } from "react-icons/ri";
 import { AiFillStar } from "react-icons/ai";
 import Image from "/9.jpg";
 import { ShimmerThumbnail, ShimmerTitle } from "react-shimmer-effects";
+import { api } from "../../api/apiClient";
 
 const ClassMe = () => {
   const navigate = useNavigate();
@@ -53,15 +54,19 @@ const ClassMe = () => {
         const token = getToken();
         if (!token) throw new Error("Authentication required");
 
-        const res = await fetch(`${Base_url}getTutorAllClass?page=1&type=3`, {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          signal: controller.signal,
-        });
+        const endpoint = `getTutorAllClass?page=1&type=3`;
+
+        const res = await api.get(endpoint);
+        
+        // const res = await fetch(`${Base_url}getTutorAllClass?page=1&type=3`, {
+        //   method: "GET",
+        //   headers: {
+        //     Accept: "application/json",
+        //     "Content-Type": "application/json",
+        //     Authorization: `Bearer ${token}`,
+        //   },
+        //   signal: controller.signal,
+        // });
 
         console.log("🌐 ClassMe API status:", res.status);
         const json = await res.json().catch(() => ({}));
@@ -116,7 +121,7 @@ const ClassMe = () => {
         subject_id: c?.subject_id,
         title: c?.title ?? "",
         headerImageVideo: c?.headerImageVideo
-          ? `https://apidocumentationpathon.pathon.app/${c.headerImageVideo}`
+          ? `${Base_url}${c.headerImageVideo}`
           : Image,
 
         name: authorizedUserName,

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUserToken } from "../../utils/auth";
+import { Base_url } from "../../api/api";
+import { api } from "../../api/apiClient";
 
 const MONTHS = [
   "Jan",
@@ -70,14 +72,8 @@ const WithdrawHistory = () => {
     }
 
     try {
-      const url = `https://apidocumentationpathon.pathon.app/api/userAllWithdraw?page=${pageToLoad}`;
-      const response = await fetch(url, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const url = `userAllWithdraw?page=${pageToLoad}`;
+      const response = await api.get(url);
 
       const payload = await response.json().catch(() => ({}));
       if (!response.ok) {

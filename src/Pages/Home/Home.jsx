@@ -4,7 +4,6 @@ import RecordClassesSection from "../../Component/Home/RecordClassesSection";
 import ProblemClassesSection from "../../Component/Home/ProblemClassesSection";
 import HeroSlider from "../../Component/HeroSlider";
 import HeroResources from "../../Component/Home/HeroResources";
-import RecommendedSection from "../../Component/Home/RecommendedSection";
 
 const Home = () => {
   const [active, setActive] = useState("live");
@@ -76,9 +75,6 @@ const Home = () => {
           <div className="mt-6">{tabs.find((t) => t.id === active)?.node}</div>
         </div>
       </section>
-
-      {/* Recommended Section */}
-      <RecommendedSection />
     </div>
   );
 };

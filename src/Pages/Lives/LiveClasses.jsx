@@ -4,7 +4,7 @@ import { RiBroadcastLine } from "react-icons/ri";
 import { LuClipboardList } from "react-icons/lu";
 import { FaShapes } from "react-icons/fa";
 import { Link } from "react-router"; // keep as you have it
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 
 const baseCards = [
   {
@@ -63,7 +63,7 @@ const LiveClasses = () => {
     }
 
     fetch(`${Base_url}totalCourseCount`, {
-      method: "GET",
+      method: "GET",  
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

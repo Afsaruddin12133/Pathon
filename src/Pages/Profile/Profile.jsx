@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { FiCamera, FiEdit3, FiSave } from "react-icons/fi";
 import { HiChevronRight } from "react-icons/hi";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 import { toast } from "react-toastify";
 import {
   ShimmerThumbnail,
@@ -9,6 +9,7 @@ import {
   ShimmerTitle,
   ShimmerText,
 } from "react-shimmer-effects";
+import { api } from "../../api/apiClient";
 
 /* --- field definitions --- */
 const fieldDefinitions = [
@@ -305,16 +306,9 @@ const getAuthToken = () => {
 };
 
 /* small fetch helpers with nice errors */
-async function apiPOSTJSON(url, body, token) {
-  const res = await fetch(url, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
-    body: JSON.stringify(body),
-  });
+async function apiPOSTJSON(url, body) {
+
+  const res = await api.post(url, body);
   if (!res.ok) {
     const txt = await res.text().catch(() => "");
     throw new Error(`POST ${url} failed: ${res.status} ${txt || ""}`);
@@ -322,15 +316,8 @@ async function apiPOSTJSON(url, body, token) {
   return res.json().catch(() => ({}));
 }
 
-async function apiPOSTForm(url, formData, token) {
-  const res = await fetch(url, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
-    body: formData,
-  });
+async function apiPOSTForm(url, formData) {
+  const res = await api.post(url, formData);
 
   if (!res.ok) {
     let errorText = await res.text().catch(() => "");
@@ -593,20 +580,12 @@ const Profile = () => {
         const getUrl = `${Base_url}userProfile?user_id=${encodeURIComponent(
           userId
         )}`;
-        let res = await fetch(getUrl, { method: "GET", headers });
+        let res = await api.get(getUrl);
 
         // 2) If server returns 4xx/5xx, try POST as a fallback
         if (!res.ok) {
           console.warn("GET failed, trying POST for userProfile…", res.status);
-          const postHeaders = {
-            ...headers,
-            "Content-Type": "application/json",
-          };
-          res = await fetch(`${Base_url}userProfile`, {
-            method: "POST",
-            headers: postHeaders,
-            body: JSON.stringify({ user_id: userId }),
-          });
+          res = await api.post(`userProfile`, JSON.stringify({ user_id: userId }));
         }
 
         if (!res.ok) throw new Error(`HTTP ${res.status}`);

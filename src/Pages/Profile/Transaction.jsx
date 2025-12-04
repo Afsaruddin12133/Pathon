@@ -7,9 +7,10 @@ import React, {
   useRef,
 } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 import { getUserId, getUserToken } from "../../utils/auth";
 import { ToastContainer, toast } from "react-toastify";
+import { api } from "../../api/apiClient";
 
 const MONTHS = [
   "Jan",
@@ -309,18 +310,10 @@ const Transaction = () => {
         const queryUrl = `${Base_url}userProfile?user_id=${encodeURIComponent(
           userId
         )}`;
-        let response = await fetch(queryUrl, { method: "GET", headers });
+        let response = await api.get(queryUrl);
 
         if (!response.ok) {
-          const fallbackHeaders = {
-            ...headers,
-            "Content-Type": "application/json",
-          };
-          response = await fetch(`${Base_url}userProfile`, {
-            method: "POST",
-            headers: fallbackHeaders,
-            body: JSON.stringify({ user_id: userId }),
-          });
+          response = await api.post(`userProfile`, JSON.stringify({ user_id: userId }));
         }
 
         if (!response.ok)
@@ -390,13 +383,7 @@ const Transaction = () => {
             query.trim()
           )}&page=${pageToLoad}`
         : `${Base_url}getUserAllTransaction?page=${pageToLoad}`;
-      const response = await fetch(url, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await api.get(url);
 
       const payload = await response.json().catch(() => ({}));
       if (!response.ok) {
@@ -441,14 +428,8 @@ const Transaction = () => {
     }
 
     try {
-      const url = `https://apidocumentationpathon.pathon.app/api/userAllWithdraw?page=${pageToLoad}`;
-      const response = await fetch(url, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const endpoint = `userAllWithdraw?page=${pageToLoad}`;
+      const response = await api.get(endpoint);
 
       const payload = await response.json().catch(() => ({}));
       if (!response.ok) {
@@ -610,22 +591,13 @@ const Transaction = () => {
         throw new Error("Authentication required");
       }
 
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
-
       const formData = new FormData();
       formData.append("addBalance", amount);
       formData.append("isAdd", "0");
 
-      const response = await fetch(
-        "https://apidocumentationpathon.pathon.app/api/addBalance",
-        {
-          method: "POST",
-          headers,
-          body: formData,
-        }
-      );
+      const endpoint = "addBalance";
+
+      const response = await api.post(endpoint, formData);
 
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
@@ -655,17 +627,9 @@ const Transaction = () => {
       formData.append("methods", method);
       formData.append("number", number);
 
-      const response = await fetch(
-        "https://apidocumentationpathon.pathon.app/api/requestForWithdraw",
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          body: formData,
-        }
-      );
-
+      const endpoint = "requestForWithdraw";
+      const response = await api.post(endpoint, formData);
+     
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
       }

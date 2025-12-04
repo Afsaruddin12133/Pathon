@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 import { toast } from "react-toastify";
 
 import { ToastContainer } from "react-toastify";
+import { api } from "../../api/apiClient";
 
 const getToken = () => {
   try {
@@ -46,16 +47,7 @@ const UpdateClass = () => {
         const token = getToken();
         if (!token) throw new Error("Authentication required");
 
-        const response = await fetch(
-          `${Base_url}courseDetails?subject_id=${subject_id}`,
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await api.get(`courseDetails?subject_id=${subject_id}`);
 
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
@@ -128,13 +120,7 @@ const UpdateClass = () => {
       console.log("📋 Form Data:", payloadData);
       console.log("🔑 Token:", token ? "Present" : "Missing");
 
-      const response = await fetch(`${Base_url}updateCLass`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
+      const response = await api.post(`updateCLass`, formData);
       console.log("📥 Response Status:", response.status);
       console.log("📥 Response OK:", response.ok);
 

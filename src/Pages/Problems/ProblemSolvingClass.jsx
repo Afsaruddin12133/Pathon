@@ -2,8 +2,9 @@ import ClassCard from "../../Component/Shared/ClassCard/ClassCard";
 import Pagination from "../../Component/Shared/Pagination/Pagination";
 import useClasses from "../../hooks/useClasses";
 
+
 const ProblemSolvingClass = () => {
-  const { classData, loading, error, pagination, setPage } = useClasses(3);
+  const { classData, loading, error, pagination, setPage } = useClasses(3,1);
   
 
   return (

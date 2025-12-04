@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import { FiSearch, FiX, FiMenu } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
-import { Base_url } from "../api/Api";
+import { Base_url } from "../api/api";
 import SearchPopup from "./SearchPopup"; // ← new
 import defaultImage from "../assets/Images/4.jpg";
+import { clearAuth } from "../utils/auth";
+import { api } from "../api/apiClient";
 
 /* 🔵 Per-tab cache for Header Avatar profile fetch */
 let headerProfileData = null; // { pictureAbsUrl, full_name, ... }  (shape kept minimal)
@@ -164,15 +166,7 @@ const Header = () => {
   }, []);
 
   const handleLogout = () => {
-    try {
-      localStorage.removeItem("auth");
-      localStorage.removeItem("authMeta");
-      console.log("🚪 Logged out - auth data removed");
-    } catch (err) {
-      console.error("❌ Error during logout:", err);
-    }
-    setAuthData(null);
-    setMobileMenuOpen(false);
+    clearAuth();
     navigate("/signin");
   };
 
@@ -204,7 +198,7 @@ const Header = () => {
     const absolutize = (maybeRelative) => {
       if (!maybeRelative) return "";
       if (/^https?:\/\//i.test(maybeRelative)) return maybeRelative;
-      return `https://apidocumentationpathon.pathon.app/${maybeRelative.replace(
+      return `${Base_url}${maybeRelative.replace(
         /^\/+/,
         ""
       )}`;
@@ -222,69 +216,56 @@ const Header = () => {
       if (!headerProfilePromise) {
         headerProfilePromise = (async () => {
           try {
-            const authRaw = localStorage.getItem("auth") || "{}";
+            const raw = localStorage.getItem("auth") || "{}";
             let parsed = {};
-            let userToken = null;
+            let token = null;
+
             try {
-              parsed = JSON.parse(authRaw);
-              userToken = parsed?.user?.token ?? parsed?.token ?? null;
+              parsed = JSON.parse(raw);
+              token = parsed?.user?.token ?? parsed?.token ?? null;
             } catch {
-              /* ignore parse error */
+              /* ignore JSON errors */
             }
+
             const userId = parsed?.user?.id ?? null;
+            const fallbackName = parsed?.user?.full_name ?? "";
 
-            if (!userId || !userToken) {
-              // cache a null result to avoid repeated attempts in this tab
+            // No user or token → return cached fallback
+            if (!userId || !token) {
               headerProfileData = {
                 pictureAbsUrl: null,
-                full_name: parsed?.user?.full_name ?? "",
+                full_name: fallbackName,
               };
               return headerProfileData;
             }
+            const response = await api.get(`/userProfile?user_id=${userId}`);
 
-            const res = await fetch(
-              `https://apidocumentationpathon.pathon.app/api/userProfile?user_id=${encodeURIComponent(
-                userId
-              )}`,
-              {
-                method: "GET",
-                headers: {
-                  Accept: "application/json",
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${userToken}`,
-                },
-              }
-            );
+            const user = response?.user ?? {};
+            const photo = user?.picture ?? null;
 
-            if (!res.ok) {
-              headerProfileData = {
-                pictureAbsUrl: null,
-                full_name: parsed?.user?.full_name ?? "",
-              };
-              return headerProfileData;
-            }
-
-            const payload = await res.json();
-            const photo = payload?.user?.picture;
             const pictureAbsUrl = photo ? absolutize(photo) : null;
 
             headerProfileData = {
               pictureAbsUrl,
-              full_name:
-                payload?.user?.full_name ?? parsed?.user?.full_name ?? "",
+              full_name: user?.full_name ?? fallbackName,
             };
             return headerProfileData;
           } catch (err) {
-            // Cache a null to prevent re-hammering endpoint in this tab
-            headerProfileData = { pictureAbsUrl: null, full_name: fullName };
+            const raw = localStorage.getItem("auth") || "{}";
+            let parsed = {};
+            parsed = JSON.parse(raw);
+
+            headerProfileData = {
+              pictureAbsUrl: null,
+              full_name: parsed?.user?.full_name ?? "",
+            };
+
             throw err;
           } finally {
             headerProfilePromise = null;
           }
         })();
       }
-
-      // Use the promise result to update local state
       headerProfilePromise
         .then((data) => {
           if (data?.pictureAbsUrl) {
@@ -428,10 +409,7 @@ const Header = () => {
                         Transaction
                       </Link>
                       <button
-                        onClick={() => {
-                          setShowProfileDropdown(false);
-                          handleLogout();
-                        }}
+                        onClick={handleLogout}
                         className="block w-full text-left px-4 py-2 text-sm text-white hover:text-purple-950 hover:bg-white duration-500 rounded-md"
                       >
                         Logout

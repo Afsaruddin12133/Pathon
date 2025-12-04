@@ -11,7 +11,8 @@ import { AiFillStar } from "react-icons/ai";
 import Header from "../Header";
 import Footer from "../Footer";
 import Image from "../../assets/Images/8.jpg";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
+import { api } from "../../api/apiClient";
 
 const Card = ({ course, type }) => {
   const getTypeIcon = () => {
@@ -181,14 +182,9 @@ const Negotiation = () => {
       myHeaders.append("Accept", "application/json");
       myHeaders.append("Authorization", `Bearer ${userToken}`);
 
-      const response = await fetch(
-        `${Base_url}myNegotiable?type=${type}&page=${page}`,
-        {
-          method: "GET",
-          headers: myHeaders,
-          redirect: "follow",
-        }
-      );
+      const url = `myNegotiable?type=${type}&page=${page}`;
+
+      const response = await api.get(url);
 
       if (!response.ok) {
         throw new Error(
@@ -202,7 +198,7 @@ const Negotiation = () => {
       const normalizedNegotiations = (result?.data || []).map((nego) => ({
         ...nego,
         headerImageVideo: nego?.headerImageVideo
-          ? `https://apidocumentationpathon.pathon.app/${nego.headerImageVideo}`
+          ? `${Base_url}${nego.headerImageVideo}`
           : Image,
       }));
 

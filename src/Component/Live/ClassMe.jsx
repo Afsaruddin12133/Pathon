@@ -9,8 +9,9 @@ import { HiOutlineUsers, HiOutlineAcademicCap } from "react-icons/hi";
 import { RiLiveLine } from "react-icons/ri";
 import { AiFillStar } from "react-icons/ai";
 import { ShimmerThumbnail, ShimmerTitle } from "react-shimmer-effects";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 import Image from "/5.jpg";
+import { api } from "../../api/apiClient";
 
 const getUserId = () => {
   try {
@@ -69,17 +70,8 @@ const ClassMe = () => {
       const token = getToken();
       if (!token) throw new Error("Authentication required");
 
-      const response = await fetch(
-        `${Base_url}getTutorAllClass?page=${page}&type=2`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const endpoint = `getTutorAllClass?page=${page}&type=2`;
+      const response = await api.get(endpoint);
 
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
@@ -144,7 +136,7 @@ const ClassMe = () => {
         id: c?.id,
         subject_id: c?.subject_id,
         headerImageVideo: c?.headerImageVideo
-          ? `https://apidocumentationpathon.pathon.app/${c.headerImageVideo}`
+          ? `${Base_url}${c.headerImageVideo}`
           : Image,
         title: c?.title ?? "",
         name: getAuthorizedUserName(),
@@ -302,16 +294,9 @@ const ClassMe = () => {
                                 if (!token)
                                   throw new Error("Authentication required");
 
-                                const response = await fetch(
-                                  `${Base_url}courseAllItemByCourseID?course_id=${ev.subject_id}`,
-                                  {
-                                    headers: {
-                                      Accept: "application/json",
-                                      "Content-Type": "application/json",
-                                      Authorization: `Bearer ${token}`,
-                                    },
-                                  }
-                                );
+                                const endpoint = `courseAllItemByCourseID?course_id=${ev.subject_id}`;
+
+                                const response = await api.get(endpoint);
 
                                 if (response.ok) {
                                   const json = await response.json();

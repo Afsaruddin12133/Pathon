@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
+import { api } from "../../api/apiClient";
 
 const readAuth = () => {
   if (typeof window === "undefined") return {};
@@ -58,36 +59,23 @@ const Buyers = ({ subjectId, visible, refreshKey = 0 }) => {
 
     (async () => {
       try {
-        const url = `${Base_url}courseAllBuyers?subject_id=${encodeURIComponent(
+        const endpoint = `/courseAllBuyers?subject_id=${encodeURIComponent(
           formattedSubjectId
         )}`;
-        const res = await fetch(url, {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          signal: controller.signal,
-        });
-
-        if (res.status === 404) {
-          if (isMounted) {
-            setBuyers([]);
-          }
+        const res = await api.get(endpoint, { signal: controller.signal });
+        if (res?.status === 404) {
+          if (isMounted) setBuyers([]);
           return;
         }
 
-        if (!res.ok) {
-          throw new Error(`HTTP ${res.status}`);
-        }
+        const list = Array.isArray(res?.data) ? res.data : [];
 
-        const json = await res.json();
-        const list = Array.isArray(json?.data) ? json.data : [];
         if (isMounted) {
           setBuyers(list);
         }
       } catch (err) {
         if (err.name === "AbortError") return;
+
         if (isMounted) {
           console.error("Failed to load buyers", err);
           setError(err.message || "Unable to load buyers.");

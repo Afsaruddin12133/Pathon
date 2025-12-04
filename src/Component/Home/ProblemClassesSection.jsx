@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { ShimmerThumbnail, ShimmerTitle } from "react-shimmer-effects";
-import useClasses from "../../hooks/useClasses";
 import ClassCard from "../Shared/ClassCard/ClassCard";
+import useClasses from "../../hooks/useClasses";
 
 const Problem = () => {
-  const { classData, loading, error } = useClasses(3);
+  const { classData, loading, error } = useClasses(3,1);
   return (
     <div className="bg-blue-50 py-8 px-4">
       <div className="mb-6 px-2">

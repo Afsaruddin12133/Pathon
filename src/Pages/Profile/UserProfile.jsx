@@ -12,8 +12,9 @@ import {
   ShimmerSimpleGallery,
 } from "react-shimmer-effects";
 
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 import { getUserToken } from "../../utils/auth";
+import { api } from "../../api/apiClient";
 
 const API_BASE = "https://apidocumentationpathon.pathon.app";
 const fallbackAvatar = "/cover.jpg";
@@ -84,19 +85,7 @@ const UserProfiles = () => {
 
     (async () => {
       try {
-        const res = await fetch(
-          `${Base_url}userProfile?user_id=${encodeURIComponent(
-            requestedUserId
-          )}`,
-          {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            signal: controller.signal,
-          }
-        );
+        const res = await api.get(`userProfile?user_id=${encodeURIComponent(requestedUserId)}`);
 
         if (!res.ok) {
           if (res.status === 404) {

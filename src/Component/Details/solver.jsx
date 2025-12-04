@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
+import { api } from "../../api/apiClient";
 
 const Solver = ({ subjectId }) => {
   const [problemData, setProblemData] = useState(null);
@@ -21,19 +22,11 @@ const Solver = ({ subjectId }) => {
           throw new Error("Authentication required");
         }
 
-        const url = `${Base_url}getProblemDetails?subject_id=${encodeURIComponent(
+        const url = `getProblemDetails?subject_id=${encodeURIComponent(
           subjectId
         )}`;
 
-        const response = await fetch(url, {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${userToken}`,
-          },
-        });
-        console.log("Problem fetch response:", response);
+        const response = await api.get(url);
 
         if (!response.ok) {
           if (response.status === 401) {
@@ -92,7 +85,7 @@ const Solver = ({ subjectId }) => {
             <div className="flex flex-col md:flex-row gap-4 items-start">
               {details.picture ? (
                 <img
-                  src={`https://apidocumentationpathon.pathon.app/${details.picture.replace(
+                  src={`${Base_url}${details.picture.replace(
                     /^\/+/,
                     ""
                   )}`}

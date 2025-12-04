@@ -4,8 +4,9 @@ import { ShimmerThumbnail, ShimmerTitle } from "react-shimmer-effects";
 import ClassCard from "../Shared/ClassCard/ClassCard";
 import useClasses from "../../hooks/useClasses";
 
+
 const Record = () => {
-  const { classData, loading, error } = useClasses(1);
+  const { classData, loading, error } = useClasses(1, 1);
 
   return (
     <div className="bg-blue-50 py-8 px-4">

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
 import { saveAuthToLocalStorage } from "../../utils/auth";
+import { api } from "../../api/apiClient";
 
 const Signup = () => {
   const location = useLocation();
@@ -49,10 +50,9 @@ const Signup = () => {
       formData.append("email", email);
       formData.append("tagList", JSON.stringify(interests));
 
-      const response = await fetch(`${Base_url}signUp`, {
-        method: "POST",
-        body: formData,
-      });
+      const endpoint  = "signUp";
+
+      const response = await api.post(endpoint, formData);
 
       const text = await response.text();
       let data;
@@ -75,8 +75,7 @@ const Signup = () => {
         data?.data?.accessToken ||
         null;
 
-      const user =
-        data?.user ||
+      const user = data?.user ||
         data?.data?.user || {
           full_name: fullName,
           email,
@@ -87,7 +86,6 @@ const Signup = () => {
 
       navigate("/");
       toast.success("Signup successful!");
-
     } catch (err) {
       toast.error(err.message || "Signup failed. Please try again.");
     } finally {

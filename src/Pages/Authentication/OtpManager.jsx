@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Base_url } from "../../api/Api";
-import { defaultHeaders, sendOtpToApi, verifyOtpWithApi } from "../../Component/Shared/auth/OtpManager/otpApi";
+import { Base_url } from "../../api/api";
+import {
+  sendOtpToApi,
+  verifyOtpWithApi,
+} from "../../Component/Shared/auth/OtpManager/otpApi";
 import OtpSend from "../../Component/Shared/auth/OtpManager/OtpSend";
 import OtpVerify from "../../Component/Shared/auth/OtpManager/OtpVerify";
 import { toast } from "react-toastify";
+import { api } from "../../api/apiClient";
 
 const OtpManager = () => {
   const navigate = useNavigate();
@@ -35,11 +39,8 @@ const OtpManager = () => {
     }
 
     if (result?.message === "user found") {
-      const loginRes = await fetch(`${Base_url}login`, {
-        method: "POST",
-        headers: defaultHeaders,
-        body: JSON.stringify({ phone: localNumber }),
-      });
+      const endpoint = `login`;
+      const loginRes = await api.post(endpoint, { phone: localNumber });
 
       const loginData = await loginRes.json();
 
@@ -55,10 +56,7 @@ const OtpManager = () => {
         loginData?.data?.token ??
         null;
 
-      const user =
-        loginData?.user ??
-        loginData?.data?.user ??
-        null;
+      const user = loginData?.user ?? loginData?.data?.user ?? null;
 
       localStorage.setItem(
         "auth",

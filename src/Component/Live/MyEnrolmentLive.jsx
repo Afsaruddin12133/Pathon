@@ -10,7 +10,8 @@ import { AiFillStar } from "react-icons/ai";
 import Header from "../Header";
 import Footer from "../Footer";
 import Image from "/8.jpg";
-import { Base_url } from "../../api/Api";
+import { Base_url } from "../../api/api";
+import { api } from "../../api/apiClient";
 
 const Card = ({ course, type }) => {
   const getTypeIcon = () => {
@@ -188,14 +189,9 @@ const MyEnrolment = () => {
       myHeaders.append("Accept", "application/json");
       myHeaders.append("Authorization", `Bearer ${userToken}`);
 
-      const response = await fetch(
-        `${Base_url}getUserAllCourse?type=${type}&page=${page}`,
-        {
-          method: "GET",
-          headers: myHeaders,
-          redirect: "follow",
-        }
-      );
+      const endpoint = `getUserAllCourse?type=${type}&page=${page}`;
+
+      const response = await api.get(endpoint);
 
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: Failed to fetch courses`);
@@ -207,7 +203,7 @@ const MyEnrolment = () => {
       const normalizedCourses = (result?.data || []).map((course) => ({
         ...course,
         headerImageVideo: course?.headerImageVideo
-          ? `https://apidocumentationpathon.pathon.app/${course.headerImageVideo}`
+          ? `${Base_url}${course.headerImageVideo}`
           : Image,
       }));
 
