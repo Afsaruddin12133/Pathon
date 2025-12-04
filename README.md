@@ -12,11 +12,6 @@ This repository is a React + Vite front-end scaffold for a learning/class market
 - ESLint (basic rules)
 - Netlify deployment (demo)
 
-## Features (current)
-- Minimal React + Vite app scaffold
-- Opinionated ESLint config (lightweight)
-
-
 ## Install & Run (developer)
 ```bash
 # Clone
